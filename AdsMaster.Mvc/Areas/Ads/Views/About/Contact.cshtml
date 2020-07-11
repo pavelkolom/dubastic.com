@@ -1,0 +1,123 @@
+﻿@{
+	Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
+}
+
+<!-- Page Header Start -->
+<div class="page-header" style="background: url(../../Classifieds/dist/img/banner1.jpg);">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="breadcrumb-wrapper">
+					<h2 class="page-title">Contact Us</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Page Header End -->
+<!-- Start Contact Us Section -->
+<section id="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-12 col-xs-12">
+				<h2 class="title-2">
+					Love to hear from you
+				</h2>
+				<!-- Form -->
+				<form id="contactForm" class="contact-form" data-toggle="validator">
+					<div class="row">
+						<div class="col-12">
+							<div class="row">
+								<div class="col-12">
+									<div class="form-group">
+										<input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required data-error="Please enter your name">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<input type="email" class="form-control" id="email" placeholder="you@yoursite.com" required data-error="Please enter your email">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required data-error="Please enter your subject">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="row">
+								<div class="col-12">
+									<div class="form-group">
+										<textarea class="form-control" placeholder="Massage" rows="7" data-error="Write your message" required></textarea>
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<button type="submit" id="submit" class="btn btn-common">Send Your Message</button>
+							<div id="msgSubmit" class="h3 text-center hidden"></div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-lg-4 col-md-12 col-xs-12">
+				<h2 class="title-2">
+					Contact Information
+				</h2>
+				<div class="information">
+					<div class="contact-datails">
+						<div class="icon">
+							<i class="fas fa-map-marker icon-radius"></i>
+						</div>
+						<div class="info">
+							<h3>Address</h3>
+							<span class="detail">Main Office: NO.22-23 Street Name- City,Country</span>
+							<span class="datail">Customer Center: NO.130-45 Streen Name- City, Country</span>
+						</div>
+					</div>
+					<div class="contact-datails">
+						<div class="icon">
+							<i class="fas fa-phone icon-radius"></i>
+						</div>
+						<div class="info">
+							<h3>Phone Numbers</h3>
+							<span class="detail">Main Office: +880 123 456 789</span>
+							<span class="datail">Customer Supprort: +880 123 456 789 </span>
+						</div>
+					</div>
+					<div class="contact-datails">
+						<div class="icon">
+							<i class="fas fa-location-arrow icon-radius"></i>
+						</div>
+						<div class="info">
+							<h3>Email Address</h3>
+							<span class="detail">
+								Customer
+								Support: info&copy;mail.com
+							</span>
+							<span class="detail">Technical Support: support&copy;mail.com</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Contact Us Section  -->
+<!-- Map Section Start -->
+<section id="google-map-area">
+	<div class="container-fluid padding-0">
+		<div class="row">
+			<div class="col-12">
+				<object style="border:0; height: 450px; width: 100%;" data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d34015.943594576835!2d-106.43242624069771!3d31.677719472407432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75d90e99d597b%3A0x6cd3eb9a9fcd23f1!2sCourtyard+by+Marriott+Ciudad+Juarez!5e0!3m2!1sen!2sbd!4v1533791187584"></object>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Map Section End -->

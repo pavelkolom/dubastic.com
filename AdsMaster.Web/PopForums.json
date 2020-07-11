@@ -1,0 +1,25 @@
+﻿{
+  "PopForums": {
+    "Database": {
+      "ConnectionString": "server=.\\SQLEXPRESS;Database=adsdubai;User=sa;Password=V$67sl,R8q23"
+    },
+    "Cache": {
+      "Seconds": 180,
+      "ConnectionString": "127.0.0.1:6379,abortConnect=false",
+      "ForceLocalOnly": false
+    },
+    "Search": {
+      "Url": "http://localhost:9200",
+      "Key": "99011A70D3D50D251B0A6141A97B40E7"
+    },
+    "Queue": {
+      "ConnectionString": "UseDevelopmentStorage=true"
+    },
+    "LogTopicViews": true,
+    "ReCaptcha": {
+      "UseReCaptcha": false,
+      "SiteKey": "6Lc2drIUAAAAAPaa1iHozzu0Zt9rjCYHhjk4Jvtr",
+      "SecretKey": "6Lc2drIUAAAAADXBXpTjMp67L-T5HdLe7OoKlLrG"
+    }
+  }
+}

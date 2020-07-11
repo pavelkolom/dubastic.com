@@ -1,0 +1,11 @@
+/.vs
+/AdsMaster.Web/node_modules
+/AdsMaster.Web/bin
+/AdsMaster.Web/obj
+/AdsMaster.DB/bin
+/AdsMaster.DB/obj
+/AdsMaster.Mvc/bin
+/AdsMaster.Mvc/obj
+/AdsMaster.Web/wwwroot/lib
+/AdsMaster.Web/Properties/PublishProfiles
+/AdsMaster.Web/package-lock.json
