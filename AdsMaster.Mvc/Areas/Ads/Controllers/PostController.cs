@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using AdsMaster.DB.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AdsMaster.Mvc.Areas.Ads.Controllers
@@ -9,6 +8,13 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
     [Area("Ads")]
     public class PostController : Controller
     {
+        private readonly AdsMasterContext _db;
+
+        public PostController(AdsMasterContext db)
+        {
+            _db = db;
+        }
+
         public ViewResult New()
         {
             ViewBag.Title = "Ads Master - Post new Ad";
@@ -26,7 +32,7 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
         }
 
         [HttpPost]
-        public ActionResult New(
+        public async Task<ActionResult> NewAsync(
             string title,
             string price,
             string file,
@@ -36,7 +42,38 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
             string phone,
             string address)
         {
-            return View();
+            var post = new Post()
+            {
+                Title = title,
+                TopicID = 10,
+                Votes = 0,
+                ParentPostID = 1,
+                IsFirstInTopic = true,
+                ShowSig = true,
+                UserID = 1,
+                Name = "",
+                PostTime = DateTime.Now,
+                IsEdited = false,
+                IsDeleted = false,
+            };
+
+            _db.Post.Add(post);
+
+            try
+            {
+                await _db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                LogError(ex);
+                return View("ErrorSave");
+            }
+
+            return View("SaveDone");
+        }
+
+        private void LogError(Exception ex)
+        {
         }
     }
 }
