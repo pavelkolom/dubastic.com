@@ -117,15 +117,11 @@ namespace PopForums.Web
 					"adsroutes", "classifieds",
 					"Ads/{controller=Home}/{action=Index}/{id?}");
 				
-				// need this if you have lots of routing and/or areas
-				endpoints.MapAreaControllerRoute(
-					"adsroutes", "classifieds",
-					"Ads/{controller=Home}/{action=Index}/{id?}");
-
 				// app routes
 				endpoints.MapControllerRoute(
 					"areaRoute",
 					"{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
 				endpoints.MapControllerRoute(
 					"default",
 					"{controller=Home}/{action=Index}/{id?}");
