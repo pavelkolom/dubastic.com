@@ -1,7 +1,9 @@
 ﻿@{
     Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
 }
+
 <link rel="stylesheet" href="~/lib/summernote/dist/summernote.min.css" type="text/css">
+
 <!-- Page Header Start -->
 <div class="page-header" style="background: url(../../Classifieds/dist/img/banner1.jpg);">
     <div class="container">
@@ -12,6 +14,7 @@
         </div>
     </div>
 </div>
+
 <!-- Page Header End -->
 <!-- Content section Start -->
 <form method="post">
@@ -25,7 +28,7 @@
                                 <h2 class="title-2">Ad Detail</h2>
                                 <div class="dashboard-wrapper">
                                     <div class="form-group mb-3">
-                                        <label class="control-label">Project Title</label>
+                                        <label class="control-label">Title</label>
                                         <input class="form-control input-md" name="Title" placeholder="Title" type="text">
                                     </div>
                                     <div class="form-group mb-3 tg-inputwithicon">
@@ -54,11 +57,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group md-3">
-                                        <section id="editor">
-                                            <div id="summernote">
-                                            </div>
-                                        </section>
+                                    <div class="form-group mb-3">
+                                        <label class="control-label">Message</label>
+                                        <textarea rows="10" cols="30" class="form-control input-md" name="Message" placeholder="Message here" type="text"></textarea>
                                     </div>
                                     <label class="tg-fileuploadlabel" for="tg-photogallery">
                                         <span>Drop files anywhere to upload</span>

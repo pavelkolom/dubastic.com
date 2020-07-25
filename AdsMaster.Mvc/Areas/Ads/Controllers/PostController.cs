@@ -40,8 +40,26 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
             string firstname,
             string lastname,
             string phone,
-            string address)
+            string address,
+            string message)
         {
+            var forum = new Forum()
+            {
+                Title = title,
+                Description = message,
+                CategoryID = 1,
+                IsQAForum = false,
+                IsVisible = true,
+                IsArchived = false,
+                SortOrder = 1,
+                TopicCount = 1,
+                PostCount = 1,
+                LastPostName = "",
+                UrlName = "",
+            };
+
+            _db.Forum.Add(forum);
+
             var post = new Post()
             {
                 Title = title,
