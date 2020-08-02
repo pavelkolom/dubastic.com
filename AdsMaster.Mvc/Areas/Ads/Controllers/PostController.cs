@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using AdsMaster.DB.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AdsMaster.Mvc.Areas.Ads.Controllers
 {
@@ -20,11 +21,16 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
             ViewBag.Title = "Ads Master - Post new Ad";
             return View();
         }
-        public ViewResult Details()
+
+        public async Task<ViewResult> DetailsAsync()
         {
             ViewBag.Title = "Ads Master - Details";
-            return View();
+
+            var post = await _db.Post.FirstOrDefaultAsync();
+
+            return View(post);
         }
+
         public ViewResult PostNotFound()
         {
             ViewBag.Title = "Ads Master - Not Found";
