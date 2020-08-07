@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using AdsMaster.DB.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -22,12 +23,10 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
             return View();
         }
 
-        public async Task<ViewResult> DetailsAsync()
+        public async Task<ViewResult> DetailsAsync(int id)
         {
             ViewBag.Title = "Ads Master - Details";
-
-            var post = await _db.Post.FirstOrDefaultAsync();
-
+            var post = await _db.Post.Where(o => o.PostID == id).FirstOrDefaultAsync();
             return View(post);
         }
 
