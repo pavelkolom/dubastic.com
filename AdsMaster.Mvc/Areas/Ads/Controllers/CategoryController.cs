@@ -17,8 +17,10 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
             _db = db;
         }
 
-        public async Task<IActionResult> Index(int page = 1)
+        public async Task<IActionResult> Index(int category = 0, int page = 1)
         {
+            ViewBag.Category = category;
+            ViewBag.Page = page;
             ViewBag.Title = "Ads Master - Category";
 
             int pageSize = 10;

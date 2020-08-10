@@ -1,4 +1,6 @@
-﻿@model AdsMaster.Mvc.Models.IndexViewModel
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model AdsMaster.Mvc.Models.IndexViewModel
 
 @{
     Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
@@ -118,40 +120,6 @@
                         </div>
                     </div>
 
-                    <div class="inner-box">
-                        <div class="widget-title">
-                            <h4>Premium Ads</h4>
-                        </div>
-                        <div class="advimg">
-                            <ul class="featured-list">
-                                <li>
-                                    <img alt="" src="~/Classifieds/dist/img/featured/img1.jpg">
-                                    <div class="hover">
-                                        <a href="post/details"><span>$49</span></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <img alt="" src="~/Classifieds/dist/img/featured/img2.jpg">
-                                    <div class="hover">
-                                        <a href="post/details"><span>$49</span></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <img alt="" src="~/Classifieds/dist/img/featured/img3.jpg">
-                                    <div class="hover">
-                                        <a href="post/details"><span>$49</span></a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="inner-box">
-                        <div class="widget-title">
-                            <h4>Advertisement</h4>
-                        </div>
-                        <img src="~/Classifieds/dist/img/img1.jpg" alt="">
-                    </div>
                 </aside>
             </div>
 
@@ -244,12 +212,15 @@
                     <div class="pagination-bar">
                         <nav>
                             <ul class="pagination">
-                                <li class="page-item"><a class="page-link active" href="post/details">1</a></li>
-                                <li class="page-item"><a class="page-link" href="post/details">2</a></li>
-                                <li class="page-item"><a class="page-link" href="post/details">3</a></li>
-                                <li class="page-item"><a class="page-link" href="post/details">4</a></li>
-                                <li class="page-item"><a class="page-link" href="post/details"> ...</a></li>
-                                <li class="page-item"><a class="page-link" href="post/details">Next</a></li>
+                                @for (var i = 1; i < Model.PageViewModel.TotalPages + 1; i++)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link @(i == @ViewBag.Page ? "active" : "")"
+                                           asp-action="Index"
+                                           asp-route-category="@ViewBag.Category"
+                                           asp-route-page="@i.ToString()">@i.ToString()</a>
+                                    </li>
+                                }
                             </ul>
                         </nav>
                     </div>
@@ -258,7 +229,7 @@
                     <div class="post-promo text-center">
                         <h2> Do you get anything for sell ? </h2>
                         <h5>Sell your products online FOR FREE. It's easier than you think !</h5>
-                        <a href="post-ads.html" class="btn btn-post btn-danger">Post a Free Ad </a>
+                        <a href="post/new" class="btn btn-post btn-danger">Post a Free Ad </a>
                     </div>
                 </div>
             </div>
