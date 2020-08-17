@@ -161,13 +161,13 @@
                 <!-- Adds wrapper Start -->
                 <div class="adds-wrapper">
 
-                    @foreach (var item in Model.Posts)
+                    @foreach (var item in Model.Items)
                     {
                         <div class="item-list">
                             <div class="row">
                                 <div class="col-sm-2 no-padding photobox">
                                     <div class="add-image">
-                                        <a href='@Url.Action("details", "post", new { id = item.PostID }, null)'>
+                                        <a href='@Url.Action("details", "post", new { id = item.CategoryID }, null)'>
                                             <img src='@Url.Content("~/Classifieds/dist/img/item/img-1.jpg")' alt="" />
                                         </a>
                                         <span class="photo-count"><i class="fas fa-camera"></i>2</span>
@@ -176,29 +176,21 @@
                                 <div class="col-sm-7 add-desc-box">
                                     <div class="add-details">
                                         <h5 class="add-title">
-                                            @Html.ActionLink(item.Name, "details", "post", new { id = item.PostID }, null)
+                                            @Html.ActionLink(item.Title, "details", "post", new { id = item.CategoryID }, null)
                                         </h5>
                                         <div class="info">
-                                            <span class="add-type">B</span>
                                             <span class="date">
                                                 <i class="fas fa-clock"></i>
-                                                16:22:13 2020-02-29
-                                            </span> -
-                                            <span class="category">Electronics</span> -
-                                            <span class="item-location"><i class="fas fa-map-marker"></i> London </span>
+                                                @Html.Label(item.LastPostTime.ToString())
+                                            </span>
                                         </div>
                                         <div class="item_desc">
-                                            @Html.ActionLink("Donec ut quam felis.Cras egestas, quam in plac erat dictum, erat mauris inte rdum est nec.", "details", "post", new { id = item.PostID }, null)
+                                            @Html.ActionLink("Donec ut quam felis.Cras egestas, quam in plac erat dictum, erat mauris inte rdum est nec.", "details", "post", new { id = item.CategoryID }, null)
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-3 float-right  price-box">
-                                    <h2 class="item-price"> $ 215</h2>
-                                    <a class="btn btn-danger btn-sm">
-                                        <i class="fas fa-certificate"></i>
-                                        <span>Top Ads</span>
-                                    </a>
-                                    <a class="btn btn-common btn-sm"> <i class="fas fa-eye"></i> <span>215</span> </a>
+                                    <h2 class="item-price">AED 215</h2>
                                 </div>
                             </div>
                         </div>
@@ -217,7 +209,7 @@
                                     <li class="page-item">
                                         <a class="page-link @(i == @ViewBag.Page ? "active" : "")"
                                            asp-action="Index"
-                                           asp-route-category="@ViewBag.Category"
+                                           asp-route-id="@ViewBag.Category"
                                            asp-route-page="@i.ToString()">@i.ToString()</a>
                                     </li>
                                 }
