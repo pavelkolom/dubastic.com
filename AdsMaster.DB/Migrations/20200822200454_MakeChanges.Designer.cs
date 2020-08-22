@@ -4,14 +4,16 @@ using AdsMaster.DB.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AdsMaster.DB.Migrations
 {
     [DbContext(typeof(AdsMasterContext))]
-    partial class AdsMasterContextModelSnapshot : ModelSnapshot
+    [Migration("20200822200454_MakeChanges")]
+    partial class MakeChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -275,8 +277,8 @@ namespace AdsMaster.DB.Migrations
                     b.Property<string>("ForumAdapterName")
                         .HasColumnType("NVARCHAR(256)");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("Image")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<bool>("IsArchived")
                         .HasColumnType("bit");
@@ -1462,7 +1464,7 @@ namespace AdsMaster.DB.Migrations
                         new
                         {
                             SecurityLogID = 1,
-                            ActivityDate = new DateTime(2020, 8, 23, 0, 24, 47, 828, DateTimeKind.Local).AddTicks(1717),
+                            ActivityDate = new DateTime(2020, 8, 23, 0, 4, 53, 651, DateTimeKind.Local).AddTicks(9752),
                             IP = "",
                             Message = "",
                             SecurityLogType = 6,
@@ -1679,7 +1681,7 @@ namespace AdsMaster.DB.Migrations
                         {
                             UserID = 1,
                             AuthorizationKey = new Guid("5f8462d6-7b5c-4226-99b9-2d0c749fd3b2"),
-                            CreationDate = new DateTime(2020, 8, 23, 0, 24, 47, 798, DateTimeKind.Local).AddTicks(1336),
+                            CreationDate = new DateTime(2020, 8, 23, 0, 4, 53, 622, DateTimeKind.Local).AddTicks(7804),
                             Email = "admin@example.com",
                             IsApproved = true,
                             Name = "admin",

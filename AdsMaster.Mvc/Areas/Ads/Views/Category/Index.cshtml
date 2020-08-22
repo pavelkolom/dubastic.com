@@ -168,7 +168,7 @@
                                 <div class="col-sm-2 no-padding photobox">
                                     <div class="add-image">
                                         <a href='@Url.Action("details", "post", new { id = item.CategoryID }, null)'>
-                                            <img src='@Url.Content("~/Classifieds/dist/img/item/img-1.jpg")' alt="" />
+                                            <img src='@Url.Content("~/Classifieds/dist/img/item/" + String.Format("{0}", item.Image))' alt="" />
                                         </a>
                                         <span class="photo-count"><i class="fas fa-camera"></i>2</span>
                                     </div>
@@ -185,12 +185,12 @@
                                             </span>
                                         </div>
                                         <div class="item_desc">
-                                            @Html.ActionLink("Donec ut quam felis.Cras egestas, quam in plac erat dictum, erat mauris inte rdum est nec.", "details", "post", new { id = item.CategoryID }, null)
+                                            @Html.ActionLink(item.Description, "details", "post", new { id = item.CategoryID }, null)
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-3 float-right  price-box">
-                                    <h2 class="item-price">AED 215</h2>
+                                    <h2 class="item-price">AED @Html.Label("", String.Format("{0}", item.Price))</h2>
                                 </div>
                             </div>
                         </div>

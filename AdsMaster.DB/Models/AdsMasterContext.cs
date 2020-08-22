@@ -6,6 +6,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
 
+/*
+ * Open Package Manager Console
+ * Choose project with database
+ * Run commands:
+ *    Add-Migration MakeChanges(-v2) (or other name, change on every update)
+ *    update-database
+ */
+
 namespace AdsMaster.DB.Models
 {
 	public class AdsMasterContext : DbContext
