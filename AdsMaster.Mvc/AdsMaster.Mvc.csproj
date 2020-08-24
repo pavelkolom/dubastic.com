@@ -9,5 +9,13 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="PopIdentity" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\POPForums\src\PopForums\PopForums.csproj" />
+  </ItemGroup>
+
 
 </Project>

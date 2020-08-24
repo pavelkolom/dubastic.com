@@ -919,7 +919,7 @@ select > opation:focus {
 .category-box {
   background-color: #fff;
   margin: 30px 0;
-  height: 280px;
+  /*height: 280px;*/
   box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   border-radius: 0;
   position: relative;
@@ -958,7 +958,7 @@ select > opation:focus {
   display: inline-block;
   text-align: center;
   padding: 40px 15px 20px;
-  border-bottom: 1px solid #EEE;
+  border-bottom: 0px solid #EEE;
   -webkit-transition: all .2s linear;
   -moz-transition: all .2s linear;
   -ms-transition: all .2s linear;
@@ -3017,12 +3017,12 @@ table.add-manage-table > tbody > tr > th {
 
 .navbar-expand-lg .navbar-nav > li.postadd a:hover {
   color: #fff;
-  background: #FF625D;
+  /*background: #FF625D;*/
 }
 
 .navbar-expand-lg .navbar-nav > li.postadd a:focus {
   color: #fff;
-  background: #FF625D;
+  /*background: #FF625D;*/
 }
 
 .navbar-default .navbar-nav > .open > a,

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace PopForums.Web
+namespace AdsMaster.Web
 {
 	public class Program
 	{

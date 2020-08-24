@@ -1,7 +1,7 @@
 ﻿{
   "PopForums": {
     "Database": {
-      "ConnectionString": "server=.\\SQLEXPRESS;Database=adsdubai;User=sa;Password=V$67sl,R8q23"
+      "ConnectionString": "Server=18.156.26.156;Database=popforums16;User=popforumsadmin;Password=V$67sl,R8q23"
     },
     "Cache": {
       "Seconds": 180,

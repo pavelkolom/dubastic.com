@@ -9,12 +9,13 @@ using PopForums.ElasticKit;
 using PopForums.AzureKit;
 using PopForums.Configuration;
 using PopForums.Extensions;
+using AdsMaster.Mvc.Areas.Ads.Authorization;
+using AdsMaster.Mvc.Areas.Ads.Extensions;
 using PopForums.Mvc.Areas.Forums.Authorization;
-using PopForums.Mvc.Areas.Forums.Extensions;
 using PopForums.Sql;
 using AdsMaster.DB.Models;
 
-namespace PopForums.Web
+namespace AdsMaster.Web
 {
 	public class Startup
 	{
@@ -46,7 +47,8 @@ namespace PopForums.Web
 			services.AddMvc(options =>
 			{
 				// identifies users on POP Forums actions
-				options.Filters.Add(typeof(PopForumsUserAttribute));
+				options.Filters.Add(typeof(AdsMasterUserAttribute));
+				//options.Filters.Add(typeof(PopForumsUserAttribute));
 			}).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
 			// It's unfortunately necessary to use the Json.NET serializer for API requests because System.Text.Json doesn't handler enums correctly
@@ -55,7 +57,8 @@ namespace PopForums.Web
 			// set up the dependencies for the SQL library in POP Forums
 			services.AddPopForumsSql();
 			// this adds dependencies from the MVC project (and base dependencies) and sets up authentication for the forum
-			services.AddPopForumsMvc();
+			services.AddAdsMasterMvc();
+			//services.AddPopForumsMvc();
 
 			// use Redis cache for POP Forums using AzureKit
 			//services.AddPopForumsRedisCache();
@@ -114,14 +117,9 @@ namespace PopForums.Web
 				
 				// need this if you have lots of routing and/or areas
 				endpoints.MapAreaControllerRoute(
-					"adsroutes", "classifieds",
+					"adsroutes", "Ads",
 					"Ads/{controller=Home}/{action=Index}/{id?}");
 				
-				// need this if you have lots of routing and/or areas
-				endpoints.MapAreaControllerRoute(
-					"adsroutes", "classifieds",
-					"Ads/{controller=Home}/{action=Index}/{id?}");
-
 				// app routes
 				endpoints.MapControllerRoute(
 					"areaRoute",
