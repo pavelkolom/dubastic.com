@@ -1,397 +1,184 @@
-﻿@{
-	Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
+﻿@using PopForums.Services;
+@using PopForums.Models;
+
+@inject IUserRetrievalShim UserRetrievalShim
+@inject ITimeFormattingService TimeFormattingService
+@model CategorizedForumContainer
+@{
+    ViewBag.Title = Model.ForumTitle;
+    Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
+    var user = UserRetrievalShim.GetUser();
+    var profile = UserRetrievalShim.GetProfile();
 }
+
+@*@section HeaderContent{
+        <link rel="sitemap" href="@ViewBag.SitemapUrl" type="application/xml" />
+        <script type="text/javascript">
+            $(function () {
+                PopForums.homeSetup();
+            });
+        </script>
+}*@
 
 <!-- Start intro section -->
 <section id="intro" class="section-intro">
-	<div class="overlay">
-		<div class="container">
-			<div class="main-text">
-				<h1 class="intro-title">Welcome To <span>ADS MASTER</span></h1>
-				<p class="sub-title">Buy and sell everything from used cars to mobile phones and computers, or search for property, jobs and more</p>
-				<!-- Start Search box -->
-				<div class="search-bar">
-					<fieldset>
-						<form class="search-form">
-							<div class="form-group">
-								<i class="lni-bullhorn"></i>
-								<input type="text" name="customword" class="form-control" placeholder="What are you looking for">
-							</div>
-							<div class="form-group">
-								<div class="tg-select">
-									<select>
-										<option value="none">All Locations</option>
-										<option value="none">Community</option>
-										<option value="none">Items For Sale</option>
-										<option value="none">Jobs</option>
-										<option value="none">Personals</option>
-										<option value="none">Real Estate</option>
-										<option value="none">Services</option>
-										<option value="none">Vehicles</option>
-									</select>
-									<i class="fas fa-angle-down"></i>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="tg-select">
-									<select>
-										<option value="none">All Locations</option>
-										<option value="none">New York</option>
-										<option value="none">California</option>
-										<option value="none">Training</option>
-										<option value="none">Washington</option>
-										<option value="none">Birmingham</option>
-										<option value="none">Chicago</option>
-										<option value="none">Phoenix</option>
-										<i class="lnr-chevron-down"></i>
-									</select>
-									<i class="fas fa-angle-down"></i>
-								</div>
-							</div>
-							<button class="btn btn-common" type="button"><i class="lni-search"></i> Search Now</button>
-						</form>
-					</fieldset>
-				</div>
-				<!-- End Search box -->
-			</div>
-		</div>
-	</div>
+    <div class="overlay">
+        <div class="container">
+            <div class="main-text">
+                <h1 class="intro-title">Welcome To <span>ADS MASTER</span></h1>
+                <p class="sub-title">Buy and sell everything from used cars to mobile phones and computers, or search for property, jobs and more</p>
+                <!-- Start Search box -->
+                <div class="search-bar">
+                    <fieldset>
+                        <form class="search-form">
+                            <div class="form-group">
+                                <i class="lni-bullhorn"></i>
+                                <input type="text" name="customword" class="form-control" placeholder="What are you looking for">
+                            </div>
+                            <div class="form-group">
+                                <div class="tg-select">
+                                    <select>
+                                        <option value="none">All Locations</option>
+                                        <option value="none">Community</option>
+                                        <option value="none">Items For Sale</option>
+                                        <option value="none">Jobs</option>
+                                        <option value="none">Personals</option>
+                                        <option value="none">Real Estate</option>
+                                        <option value="none">Services</option>
+                                        <option value="none">Vehicles</option>
+                                    </select>
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="tg-select">
+                                    <select>
+                                        <option value="none">All Locations</option>
+                                        <option value="none">New York</option>
+                                        <option value="none">California</option>
+                                        <option value="none">Training</option>
+                                        <option value="none">Washington</option>
+                                        <option value="none">Birmingham</option>
+                                        <option value="none">Chicago</option>
+                                        <option value="none">Phoenix</option>
+                                        <i class="lnr-chevron-down"></i>
+                                    </select>
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                            </div>
+                            <button class="btn btn-common" type="button"><i class="lni-search"></i> Search Now</button>
+                        </form>
+                    </fieldset>
+                </div>
+                <!-- End Search box -->
+            </div>
+        </div>
+    </div>
 </section>
 <!-- end intro section -->
 
+
 <div class="wrapper">
-	<!-- Categories Homepage Section Start -->
-	<section id="categories-homepage">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h3 class="section-title">Browse Ads from 8 Categories</h3>
-				</div>
-				<div class="col-lg-3 col-md-6 col-xs-12">
-					<div class="category-box border-1 wow fadeInUpQuick" data-wow-delay="0.1s">
-						<div class="icon">
-							<a href="/ads/category?id=0"><i class="lnr lnr-users color-1"></i></a>
-						</div>
-						<div class="category-header">
-							<a href="/ads/category?id=0"><h4>Community</h4></a>
-						</div>
-						<div class="category-content">
-							<ul>
-								<li>
-									<a href="/ads/category?id=0">Announcements</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Car Pool - Bike Ride</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Charity - Donate - NGO</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Lost - Found</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Tender Notices</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">General Entertainment</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">View all subcategories →</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-xs-12">
-					<div class="category-box border-2 wow fadeInUpQuick" data-wow-delay="0.2s">
-						<div class="icon">
-							<a href="/ads/category?id=1"><i class="lnr lnr-laptop-phone color-2"></i></a>
-						</div>
-						<div class="category-header">
-							<a href="/ads/category?id=1"><h4>Electronics</h4></a>
-						</div>
-						<div class="category-content">
-							<ul>
-								<li>
-									<a href="/ads/category?id=1">Home Electronics</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=1">LCDs</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=1">Charity - Donate - NGO</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=1">Mobile & Tablets</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=1">TV & DVDs</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=1">Technical Services</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=1">Others</a>
-									<sapn class="category-counter">1</sapn>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-xs-12">
-					<div class="category-box border-3 wow fadeInUpQuick" data-wow-delay="0.3s">
-						<div class="icon">
-							<a href="/ads/category?id=0"><i class="lnr lnr-cog color-3"></i></a>
-						</div>
-						<div class="category-header">
-							<a href="/ads/category?id=0"><h4>Services</h4></a>
-						</div>
-						<div class="category-content">
-							<ul>
-								<li>
-									<a href="/ads/category?id=0">Cleaning Services</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Educational</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Food Services</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Medical</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Office & Home Removals</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">General Entertainment</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">View all subcategories →</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-xs-12">
-					<div class="category-box border-4 wow fadeInUpQuick" data-wow-delay="0.4s">
-						<div class="icon">
-							<a href="/ads/category?id=0"><i class="lnr lnr-cart color-4"></i></a>
-						</div>
-						<div class="category-header">
-							<a href="/ads/category?id=0"><h4>Shopping</h4></a>
-						</div>
-						<div class="category-content">
-							<ul>
-								<li>
-									<a href="/ads/category?id=0">Bags</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Beauty Products</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Jewelry</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Shoes M/F</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Tender Notices</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Others</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-xs-12">
-					<div class="category-box border-5 wow fadeInUpQuick" data-wow-delay="0.1s">
-						<div class="icon">
-							<a href="/ads/category?id=0"><i class="lnr lnr-briefcase color-5"></i></a>
-						</div>
-						<div class="category-header">
-							<a href="/ads/category?id=0"><h4>Jobs</h4></a>
-						</div>
-						<div class="category-content">
-							<ul>
-								<li>
-									<a href="/ads/category?id=0">Accounts Jobs</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Cleaning & Washing</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Web design</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Design & Code</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Finance Jobs</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Data Entry</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">View all subcategories →</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-xs-12">
-					<div class="category-box border-6 wow fadeInUpQuick" data-wow-delay="0.2s">
-						<div class="icon">
-							<a href="/ads/category?id=0"><i class="lnr lnr-graduation-hat color-6"></i></a>
-						</div>
-						<div class="category-header">
-							<a href="/ads/category?id=0"><h4>Training</h4></a>
-						</div>
-						<div class="category-content">
-							<ul>
-								<li>
-									<a href="/ads/category?id=0">Android Development</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">20 Days HTML/CSS</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">iOS Development with Swift</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">SEO for rest of us</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Mastering in Java</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Others</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">View all subcategories →</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-xs-12">
-					<div class="category-box border-7 wow fadeInUpQuick" data-wow-delay="0.3s">
-						<div class="icon">
-							<a href="/ads/category?id=0"><i class="lnr lnr-apartment color-7"></i></a>
-						</div>
-						<div class="category-header">
-							<a href="/ads/category?id=0"><h4>Real Estate</h4></a>
-						</div>
-						<div class="category-content">
-							<ul>
-								<li>
-									<a href="/ads/category?id=0">Farms</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Home for rent</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Hotels</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Land for sale</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Offices for rent</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Others</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-xs-12">
-					<div class="category-box border-8 wow fadeInUpQuick" data-wow-delay="0.4s">
-						<div class="icon">
-							<a href="/ads/category?id=0"><i class="lnr lnr-car color-8"></i></a>
-						</div>
-						<div class="category-header">
-							<a href="/ads/category?id=0"><h4>Vehicles</h4></a>
-						</div>
-						<div class="category-content">
-							<ul>
-								<li>
-									<a href="/ads/category?id=0">Cars</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Fancy Cars</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Kids Bikes</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Motor Bikes</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Classic & Modern</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">Kinds</a>
-									<sapn class="category-counter">3</sapn>
-								</li>
-								<li>
-									<a href="/ads/category?id=0">View all subcategories →</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Categories Homepage Section End -->
+    <!-- Categories Homepage Section Start -->
+    <section id="categories-homepage">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title">Browse Ads from Categories</h3>
+                </div>
+                @{
+                  int k = 0;
+                  foreach (var category in Model.CategoryDictionary)
+                  {
+                      k += 1; 
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <div class="@("category-box border-" + (k%8 + 1).ToString() + " wow fadeInUpQuick")" data-wow-delay="0.1s">
+                            <div class="icon">
+                                <a href="category.html"><i class="@("lnr " + AdsMaster.Mvc.Areas.Ads.Services.IconService.GetIcon(category.Key.Title) + " color-" + (k%8 + 1).ToString())"></i></a>
+                            </div>
+                            <div class="category-header">
+                                <a href="category.html"><h4>@category.Key.Title</h4></a>
+                            </div>
+                            <div class="category-content">
+                                @if (category.Value.Count > 0)
+                                {
+                                <ul style="margin:0px;">
+                                    @for (int i = 0; i < category.Value.Count && i < 5; i++)// var forum in category.Value)
+                                    {
+                                        var forum = category.Value[i];
+
+                                        <li data-forumid="@forum.ForumID">
+                                            <a asp-controller="Forum" asp-action="Index" asp-route-urlName="@forum.UrlName">@forum.Title</a>
+                                            <sapn class="category-counter">@forum.TopicCount.ToString("N0")</sapn>
+                                        </li>
+                                    }
+                                    @if (category.Value.Count > 5)
+                                    {
+                                        <li id="@("btnExpand" + category.Key.CategoryID)">
+                                            <a href="@("javascript:expand(" + category.Key.CategoryID + ")")">More →</a>
+                                        </li>
+                                    }
+                                </ul>
+                                }
+                                @if (category.Value.Count > 5)
+                                {
+                                    <ul style="margin:0px;display:none;"  id="@("myDIV" + category.Key.CategoryID)">
+                                        
+                                        @for (int i = 5; i < category.Value.Count; i++)// var forum in category.Value)
+                                        {
+                                            var forum = category.Value[i];
+                                            <li data-forumid="@forum.ForumID">
+                                                <a asp-controller="Forum" asp-action="Index" asp-route-urlName="@forum.UrlName">@forum.Title</a>
+                                                <sapn class="category-counter">@forum.TopicCount.ToString("N0")</sapn>
+                                            </li>
+                                        }
+                                    @if (category.Value.Count > 5)
+                                    {
+                                        <li style="display:none;" id="@("btnCollapse" + category.Key.CategoryID)">
+                                            <a href="@("javascript:collapse(" + category.Key.CategoryID + ")")">Less →</a>
+                                        </li>
+                                    }
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+                }
+            </div>
+        </div>
+    </section>
+    <!-- Categories Homepage Section End -->
 </div>
+
+@section scripts
+{
+
+    <script>
+        function expand(val) {
+            var x = document.getElementById("myDIV" + val);
+            var y = document.getElementById("btnExpand" + val);
+            var z = document.getElementById("btnCollapse" + val);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.style.display = "none";
+                z.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+        function collapse(val) {
+            var x = document.getElementById("myDIV" + val);
+            var y = document.getElementById("btnExpand" + val);
+            var z = document.getElementById("btnCollapse" + val);
+            if (x.style.display === "block") {
+                x.style.display = "none";
+                y.style.display = "block";
+                z.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+
+    </script>
+}

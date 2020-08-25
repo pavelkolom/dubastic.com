@@ -1,44 +1,14 @@
-﻿@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
-
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-
-@section HeaderContent {
-    @RenderSection("HeaderContent", required: false)
-    <environment include="Development">
-        <link rel="shortcut icon" href="~/favicon.ico">
-        <script src="~/lib/signalr/dist/signalr.js"></script>
-        @*<script src="~/lib/PopForums/src/PopForums.js"></script>
-            <link href="~/lib/PopForums/src/PopForums.css" rel="stylesheet" />*@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="author" content="Ads Master">
+	<title>@ViewBag.Title</title>
 
 	<!-- Favicon -->
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" type="text/css">
-        <!-- Font Awesome CSS -->
-        <link rel="stylesheet" href="~/Classifieds/dist/fonts/all.min.css" type="text/css">
-        <!-- Line Icons CSS -->
-        <link rel="stylesheet" href="~/Classifieds/dist/fonts/line-icons/line-icons.css" type="text/css">
-        <!-- Animate CSS -->
-        <link rel="stylesheet" href="~/Classifieds/dist/extras/animate.css" type="text/css">
-        <!-- Owl Carousel -->
-        <link rel="stylesheet" href="~/Classifieds/dist/extras/owl.carousel.css" type="text/css">
-        <link rel="stylesheet" href="~/Classifieds/dist/extras/owl.theme.css" type="text/css">
-        <!-- Slicknav js -->
-        <link rel="stylesheet" href="~/lib/slicknav/dist/slicknav.min.css" type="text/css">
-        <!-- Main Styles -->
-        <link rel="stylesheet" href="~/Classifieds/dist/css/main.css" type="text/css">
-        <!-- Responsive CSS Styles -->
-        <link rel="stylesheet" href="~/Classifieds/dist/css/responsive.css" type="text/css">
-
-    </environment>
-    <environment exclude="Development">
-        <script src="~/lib/signalr/dist/signalr.min.js"></script>
-        @*<script src="~/lib/PopForums/dist/PopForums.min.js"></script>
-            <link href="~/lib/PopForums/dist/PopForums.min.css" rel="stylesheet"*@ />
-
-        <!-- Favicon -->
 	<link rel="shortcut icon" href="~/favicon.ico">
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" type="text/css">
@@ -57,11 +27,10 @@
 	<link rel="stylesheet" href="~/Classifieds/dist/css/main.css" type="text/css">
 	<!-- Responsive CSS Styles -->
 	<link rel="stylesheet" href="~/Classifieds/dist/css/responsive.css" type="text/css">
-    </environment>
-}
 
-@*@await Component.InvokeAsync("UserNavigation")*@
+</head>
 
+<body>
 	<!-- Header Section Start -->
 	<div class="header">
 		<!-- Navbar Start -->
@@ -81,9 +50,14 @@
 					<div class="collapse navbar-collapse" id="main-navbar">
 						<ul class="navbar-nav mr-auto w-100 justify-content-end">
 							<li class="nav-item dropdown">
-                                <a class="nav-link" href="@Url.Action("Index", "Home")">
-                                    Home
-                                </a>
+								<a class="nav-link dropdown-toggle active" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Home
+								</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item active" href="@Url.Action("Index", "Home")">Home 1</a></li>
+									<li><a class="dropdown-item" href="@Url.Action("Index1", "Home")">Home 2</a></li>
+									<li><a class="dropdown-item" href="@Url.Action("Index2", "Home")">Home 3</a></li>
+								</ul>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="@Url.Action("Index", "Category")">
@@ -124,14 +98,14 @@
 									<i class="lnr lnr-user"></i> My Account
 								</a>
 								<ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="@Url.Action("Index", "Account1")"><i class="lnr lnr-home"></i> Account Home</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("MyAds", "Account1")"><i class="lnr lnr-cart"></i> My Ads</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Favourite", "Account1")"><i class="lnr lnr-heart"></i> Favourite ads</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Archive", "Account1")"><i class="lnr lnr-file-add"></i> Archived</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Login", "Account1")"><i class="lnr lnr-lock"></i> Log In</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Signup", "Account1")"><i class="lnr lnr-user"></i> Signup</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("ForgotPassword", "Account1")"><i class="lnr lnr-sync"></i> Forgot Password</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("CloseAccount", "Account1")"><i class="lnr lnr-cross"></i>Account close</a></li>
+									<li><a class="dropdown-item" href="@Url.Action("Index", "Account1")"><i class="lnr lnr-home"></i> Account Home</a></li>
+									<li><a class="dropdown-item" href="@Url.Action("MyAds", "Account1")"><i class="lnr lnr-cart"></i> My Ads</a></li>
+									<li><a class="dropdown-item" href="@Url.Action("Favourite", "Account1")"><i class="lnr lnr-heart"></i> Favourite ads</a></li>
+									<li><a class="dropdown-item" href="@Url.Action("Archive", "Account1")"><i class="lnr lnr-file-add"></i> Archived</a></li>
+									<li><a class="dropdown-item" href="@Url.Action("Login", "Account1")"><i class="lnr lnr-lock"></i> Log In</a></li>
+									<li><a class="dropdown-item" href="@Url.Action("Signup", "Account1")"><i class="lnr lnr-user"></i> Signup</a></li>
+									<li><a class="dropdown-item" href="@Url.Action("ForgotPassword", "Account1")"><i class="lnr lnr-sync"></i> Forgot Password</a></li>
+									<li><a class="dropdown-item" href="@Url.Action("CloseAccount", "Account1")"><i class="lnr lnr-cross"></i>Account close</a></li>
 								</ul>
 							</li>
 							<li class="postadd">
@@ -146,7 +120,6 @@
 		<!-- Navbar End -->
 	</div>
 	<!-- Header Section End -->
-
 	@RenderBody()
 	<!-- Footer Section Start -->
 	<footer>
@@ -278,18 +251,12 @@
 	</a>
 
 	<!-- Main JS  -->
-
-
-
-@section scripts {
-    @RenderSection("scripts", required: false)
-    <environment include="Development">
 	<script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="~/lib/popper.js/dist/popper.min.js"></script>
 	<script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="~/lib/jquery.stellar/jquery.stellar.js"></script>
 	<script type="text/javascript" src="~/Classifieds/dist/js/owl.carousel.min.js"></script>
-	@*<script type="text/javascript" src="~/Classifieds/dist/js/color-switcher.js"></script>*@
+	<script type="text/javascript" src="~/Classifieds/dist/js/color-switcher.js"></script>
 	<script type="text/javascript" src="~/lib/slicknav/dist/jquery.slicknav.min.js"></script>
 	<script type="text/javascript" src="~/lib/wowjs/dist/wow.min.js"></script>
 	<script type="text/javascript" src="~/lib/jquery.counterup/jquery.counterup.min.js"></script>
@@ -297,21 +264,6 @@
 	<script type="text/javascript" src="~/lib/bootstrap-validator/dist/validator.min.js"></script>
 	<script type="text/javascript" src="~/Classifieds/dist/js/contact-form-script.js"></script>
 	<script type="text/javascript" src="~/Classifieds/dist/js/main.js"></script>
-
-    </environment>
-    <environment exclude="Development">
-        <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script type="text/javascript" src="~/lib/popper.js/dist/popper.min.js"></script>
-        <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="~/lib/jquery.stellar/jquery.stellar.js"></script>
-        <script type="text/javascript" src="~/Classifieds/dist/js/owl.carousel.min.js"></script>
-        <script type="text/javascript" src="~/Classifieds/dist/js/color-switcher.js"></script>
-        <script type="text/javascript" src="~/lib/slicknav/dist/jquery.slicknav.min.js"></script>
-        <script type="text/javascript" src="~/lib/wowjs/dist/wow.min.js"></script>
-        <script type="text/javascript" src="~/lib/jquery.counterup/jquery.counterup.min.js"></script>
-        <script type="text/javascript" src="~/lib/waypoints/lib/jquery.waypoints.min.js"></script>
-        <script type="text/javascript" src="~/lib/bootstrap-validator/dist/validator.min.js"></script>
-        <script type="text/javascript" src="~/Classifieds/dist/js/contact-form-script.js"></script>
-        <script type="text/javascript" src="~/Classifieds/dist/js/main.js"></script>
-    </environment>
-}
+	@RenderSection("scripts", required: false)
+</body>
+</html>
