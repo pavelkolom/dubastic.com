@@ -12,13 +12,13 @@
 }
 
 @*@section HeaderContent{
-        <link rel="sitemap" href="@ViewBag.SitemapUrl" type="application/xml" />
-        <script type="text/javascript">
-            $(function () {
-                PopForums.homeSetup();
-            });
-        </script>
-}*@
+            <link rel="sitemap" href="@ViewBag.SitemapUrl" type="application/xml" />
+            <script type="text/javascript">
+                $(function () {
+                    PopForums.homeSetup();
+                });
+            </script>
+    }*@
 
 <!-- Start intro section -->
 <section id="intro" class="section-intro">
@@ -87,63 +87,63 @@
                     <h3 class="section-title">Browse Ads from Categories</h3>
                 </div>
                 @{
-                  int k = 0;
-                  foreach (var category in Model.CategoryDictionary)
-                  {
-                      k += 1; 
-                    <div class="col-lg-3 col-md-6 col-xs-12">
-                        <div class="@("category-box border-" + (k%8 + 1).ToString() + " wow fadeInUpQuick")" data-wow-delay="0.1s">
-                            <div class="icon">
-                                <a href="category.html"><i class="@("lnr " + AdsMaster.Mvc.Areas.Ads.Services.IconService.GetIcon(category.Key.Title) + " color-" + (k%8 + 1).ToString())"></i></a>
-                            </div>
-                            <div class="category-header">
-                                <a href="category.html"><h4>@category.Key.Title</h4></a>
-                            </div>
-                            <div class="category-content">
-                                @if (category.Value.Count > 0)
-                                {
-                                <ul style="margin:0px;">
-                                    @for (int i = 0; i < category.Value.Count && i < 5; i++)// var forum in category.Value)
+                    int k = 0;
+                    foreach (var category in Model.CategoryDictionary)
+                    {
+                        k += 1;
+                        <div class="col-lg-3 col-md-6 col-xs-12">
+                            <div class="@("category-box border-" + (k%8 + 1).ToString() + " wow fadeInUpQuick")" data-wow-delay="0.1s">
+                                <div class="icon">
+                                    <a href="category.html"><i class="@("lnr " + AdsMaster.Mvc.Areas.Ads.Services.IconService.GetIcon(category.Key.Title) + " color-" + (k%8 + 1).ToString())"></i></a>
+                                </div>
+                                <div class="category-header">
+                                    <a href="category.html"><h4>@category.Key.Title</h4></a>
+                                </div>
+                                <div class="category-content">
+                                    @if (category.Value.Count > 0)
                                     {
-                                        var forum = category.Value[i];
+                                        <ul style="margin:0px;">
+                                            @for (int i = 0; i < category.Value.Count && i < 5; i++)// var forum in category.Value)
+                                            {
+                                                var forum = category.Value[i];
 
-                                        <li data-forumid="@forum.ForumID">
-                                            <a asp-controller="Forum" asp-action="Index" asp-route-urlName="@forum.UrlName">@forum.Title</a>
-                                            <sapn class="category-counter">@forum.TopicCount.ToString("N0")</sapn>
-                                        </li>
+                                                <li data-forumid="@forum.ForumID">
+                                                    <a asp-controller="Forum" asp-action="Index" asp-route-urlName="@forum.UrlName">@forum.Title</a>
+                                                    <sapn class="category-counter">@forum.TopicCount.ToString("N0")</sapn>
+                                                </li>
+                                            }
+                                            @if (category.Value.Count > 5)
+                                            {
+                                                <li id="@("btnExpand" + category.Key.CategoryID)">
+                                                    <a href="@("javascript:expand(" + category.Key.CategoryID + ")")">More →</a>
+                                                </li>
+                                            }
+                                        </ul>
                                     }
                                     @if (category.Value.Count > 5)
                                     {
-                                        <li id="@("btnExpand" + category.Key.CategoryID)">
-                                            <a href="@("javascript:expand(" + category.Key.CategoryID + ")")">More →</a>
-                                        </li>
+                                        <ul style="margin:0px;display:none;" id="@("myDIV" + category.Key.CategoryID)">
+
+                                            @for (int i = 5; i < category.Value.Count; i++)// var forum in category.Value)
+                                            {
+                                                var forum = category.Value[i];
+                                                <li data-forumid="@forum.ForumID">
+                                                    <a asp-controller="Forum" asp-action="Index" asp-route-urlName="@forum.UrlName">@forum.Title</a>
+                                                    <sapn class="category-counter">@forum.TopicCount.ToString("N0")</sapn>
+                                                </li>
+                                            }
+                                            @if (category.Value.Count > 5)
+                                            {
+                                                <li style="display:none;" id="@("btnCollapse" + category.Key.CategoryID)">
+                                                    <a href="@("javascript:collapse(" + category.Key.CategoryID + ")")">Less →</a>
+                                                </li>
+                                            }
+                                        </ul>
                                     }
-                                </ul>
-                                }
-                                @if (category.Value.Count > 5)
-                                {
-                                    <ul style="margin:0px;display:none;"  id="@("myDIV" + category.Key.CategoryID)">
-                                        
-                                        @for (int i = 5; i < category.Value.Count; i++)// var forum in category.Value)
-                                        {
-                                            var forum = category.Value[i];
-                                            <li data-forumid="@forum.ForumID">
-                                                <a asp-controller="Forum" asp-action="Index" asp-route-urlName="@forum.UrlName">@forum.Title</a>
-                                                <sapn class="category-counter">@forum.TopicCount.ToString("N0")</sapn>
-                                            </li>
-                                        }
-                                    @if (category.Value.Count > 5)
-                                    {
-                                        <li style="display:none;" id="@("btnCollapse" + category.Key.CategoryID)">
-                                            <a href="@("javascript:collapse(" + category.Key.CategoryID + ")")">Less →</a>
-                                        </li>
-                                    }
-                                    </ul>
-                                }
+                                </div>
                             </div>
                         </div>
-                    </div>
-                }
+                    }
                 }
             </div>
         </div>
