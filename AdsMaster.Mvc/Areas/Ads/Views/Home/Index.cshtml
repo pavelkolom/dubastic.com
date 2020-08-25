@@ -94,10 +94,14 @@
                         <div class="col-lg-3 col-md-6 col-xs-12">
                             <div class="@("category-box border-" + (k%8 + 1).ToString() + " wow fadeInUpQuick")" data-wow-delay="0.1s">
                                 <div class="icon">
-                                    <a href="category.html"><i class="@("lnr " + AdsMaster.Mvc.Areas.Ads.Services.IconService.GetIcon(category.Key.Title) + " color-" + (k%8 + 1).ToString())"></i></a>
+                                    <a href="./Ads/Category/Index/@category.Key.CategoryID">
+                                        <i class="@("lnr " + AdsMaster.Mvc.Areas.Ads.Services.IconService.GetIcon(category.Key.Title) + " color-" + (k%8 + 1).ToString())"></i>
+                                    </a>
                                 </div>
                                 <div class="category-header">
-                                    <a href="category.html"><h4>@category.Key.Title</h4></a>
+                                    <a href="./Ads/Category/Index/@category.Key.CategoryID">
+                                        <h4>@category.Key.Title</h4>
+                                    </a>
                                 </div>
                                 <div class="category-content">
                                     @if (category.Value.Count > 0)
