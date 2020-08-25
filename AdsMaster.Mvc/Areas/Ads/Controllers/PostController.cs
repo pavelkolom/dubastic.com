@@ -1,9 +1,12 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using AdsMaster.DB.Models;
+﻿using AdsMaster.DB.Models;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace AdsMaster.Mvc.Areas.Ads.Controllers
 {
@@ -11,10 +14,12 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
     public class PostController : Controller
     {
         private readonly AdsMasterContext _db;
+        IWebHostEnvironment _appEnvironment;
 
-        public PostController(AdsMasterContext db)
+        public PostController(AdsMasterContext db, IWebHostEnvironment appEnvironment)
         {
             _db = db;
+            _appEnvironment = appEnvironment;
         }
 
         public ViewResult New()
@@ -46,7 +51,8 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
             string lastname,
             string phone,
             string address,
-            string message)
+            string message,
+            IFormFile uploadedFile)
         {
             var forum = new Forum()
             {
@@ -62,6 +68,18 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
                 LastPostName = "",
                 UrlName = "",
             };
+
+            if (uploadedFile != null)
+            {
+                string path = "/Files/" + uploadedFile.FileName;
+
+                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                {
+                    await uploadedFile.CopyToAsync(fileStream);
+                }
+
+                forum.Image = uploadedFile.FileName;
+            }
 
             _db.Forum.Add(forum);
 
