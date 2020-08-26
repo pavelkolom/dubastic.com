@@ -5,7 +5,7 @@ namespace AdsMaster.Mvc.Models
 {
     public class IndexViewModel
     {
-        public IEnumerable<Forum> Items { get; set; }
+        public IEnumerable<Topic> Items { get; set; }
         public PageViewModel PageViewModel { get; set; }
     }
 }

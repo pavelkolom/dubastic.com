@@ -115,7 +115,6 @@
 
                                                 <li data-forumid="@forum.ForumID">
                                                     <a asp-controller="Category" asp-action="Index" asp-route-id="@category.Key.CategoryID" asp-route-category="@forum.ForumID">@forum.Title</a>
-                                                    <sapn class="category-counter">@forum.TopicCount.ToString("N0")</sapn>
                                                 </li>
                                             }
                                             @if (category.Value.Count > 5)
@@ -135,9 +134,9 @@
                                                 var forum = category.Value[i];
                                                 <li data-forumid="@forum.ForumID">
                                                     <a asp-controller="Forum" asp-action="Index" asp-route-urlName="@forum.UrlName">@forum.Title</a>
-                                                    <sapn class="category-counter">@forum.TopicCount.ToString("N0")</sapn>
                                                 </li>
                                             }
+
                                             @if (category.Value.Count > 5)
                                             {
                                                 <li style="display:none;" id="@("btnCollapse" + category.Key.CategoryID)">

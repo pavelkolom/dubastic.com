@@ -130,32 +130,6 @@
                         <a class="list switchToGrid" href="post/details"><i class="fas fa-list"></i></a>
                         <a class="grid switchToList" href="post/details"><i class="fas fa-th-large"></i></a>
                     </div>
-                    <div class="short-name">
-                        <span>Short By</span>
-                        <form class="name-ordering" method="post">
-                            <label>
-                                <select name="order" class="orderby">
-                                    <option selected="selected" value="menu-order">Short by</option>
-                                    <option value="popularity">Price: Low to High</option>
-                                    <option value="popularity">Price: High to Low</option>
-                                </select>
-                            </label>
-                        </form>
-                    </div>
-                    <div class="Show-item">
-                        <span>Show Items</span>
-                        <form class="woocommerce-ordering" method="post">
-                            <label>
-                                <select name="order" class="orderby">
-                                    <option selected="selected" value="menu-order">49 items</option>
-                                    <option value="popularity">popularity</option>
-                                    <option value="popularity">Average ration</option>
-                                    <option value="popularity">newness</option>
-                                    <option value="popularity">price</option>
-                                </select>
-                            </label>
-                        </form>
-                    </div>
                 </div>
                 <!-- Product filter End -->
                 <!-- Adds wrapper Start -->
@@ -167,7 +141,7 @@
                             <div class="row">
                                 <div class="col-sm-2 no-padding photobox">
                                     <div class="add-image">
-                                        <a href='@Url.Action("details", "post", new { id = item.CategoryID }, null)'>
+                                        <a href='@Url.Action("details", "post", new { id = item.TopicID }, null)'>
                                             <img src='@Url.Content("~/Files/" + String.Format("{0}", item.Image))' alt="" />
                                         </a>
                                         <span class="photo-count"><i class="fas fa-camera"></i>2</span>
@@ -176,7 +150,7 @@
                                 <div class="col-sm-7 add-desc-box">
                                     <div class="add-details">
                                         <h5 class="add-title">
-                                            @Html.ActionLink(item.Title, "details", "post", new { id = item.CategoryID }, null)
+                                            @Html.ActionLink(item.Title, "details", "post", new { id = item.TopicID }, null)
                                         </h5>
                                         <div class="info">
                                             <span class="date">
@@ -185,7 +159,7 @@
                                             </span>
                                         </div>
                                         <div class="item_desc">
-                                            @Html.ActionLink(item.Description, "details", "post", new { id = item.CategoryID }, null)
+                                            @Html.ActionLink(item.Description, "details", "post", new { id = item.TopicID }, null)
                                         </div>
                                     </div>
                                 </div>
@@ -221,7 +195,7 @@
                     <div class="post-promo text-center">
                         <h2> Do you get anything for sell ? </h2>
                         <h5>Sell your products online FOR FREE. It's easier than you think !</h5>
-                        <a href="post/new" class="btn btn-post btn-danger">Post a Free Ad </a>
+                        <a href="/Ads/Post/New" class="btn btn-post btn-danger">Post a Free Ad </a>
                     </div>
                 </div>
             </div>

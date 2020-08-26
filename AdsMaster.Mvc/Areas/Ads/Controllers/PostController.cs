@@ -31,8 +31,12 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
         public async Task<ViewResult> DetailsAsync(int id)
         {
             ViewBag.Title = "Ads Master - Details";
-            var post = await _db.Post.Where(o => o.PostID == id).FirstOrDefaultAsync();
-            return View(post);
+            
+            var item = await _db.Topic
+                .Where(o => o.TopicID == id)
+                .FirstOrDefaultAsync();
+
+            return View(item);
         }
 
         public ViewResult PostNotFound()
@@ -54,19 +58,16 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
             string message,
             IFormFile uploadedFile)
         {
-            var forum = new Forum()
+            var item = new Topic()
             {
+                ForumID = 41,
                 Title = title,
-                Description = message,
-                CategoryID = 1,
-                IsQAForum = false,
-                IsVisible = true,
-                IsArchived = false,
-                SortOrder = 1,
-                TopicCount = 1,
-                PostCount = 1,
                 LastPostName = "",
                 UrlName = "",
+                Price = 10,
+                AnswerPostID = 0,
+                StartedByName = "",
+                Description = message,
             };
 
             if (uploadedFile != null)
@@ -78,27 +79,10 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
                     await uploadedFile.CopyToAsync(fileStream);
                 }
 
-                forum.Image = uploadedFile.FileName;
+                item.Image = uploadedFile.FileName;
             }
 
-            _db.Forum.Add(forum);
-
-            var post = new Post()
-            {
-                Title = title,
-                TopicID = 10,
-                Votes = 0,
-                ParentPostID = 1,
-                IsFirstInTopic = true,
-                ShowSig = true,
-                UserID = 1,
-                Name = "",
-                PostTime = DateTime.Now,
-                IsEdited = false,
-                IsDeleted = false,
-            };
-
-            _db.Post.Add(post);
+            _db.Topic.Add(item);
 
             try
             {

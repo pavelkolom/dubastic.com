@@ -1,4 +1,4 @@
-﻿@model AdsMaster.DB.Models.Post
+﻿@model AdsMaster.DB.Models.Topic
 
 @{
     Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
@@ -22,7 +22,7 @@
             <!-- Product Info Start -->
             <div class="col-lg-8 col-md-12 col-xs-12">
                 <div class="inner-box ads-details-wrapper">
-                    <h2>@Html.DisplayFor(model => model.Name)</h2>
+                    <h2>@Html.DisplayFor(model => model.Title)</h2>
                     <p class="item-intro"><span class="poster">For sale by <span class="ui-bubble is-member">John</span> <span class="date"> 20 Mar  2:27 am</span> from <span class="location">New York</span></p>
                     <div id="owl-demo" class="owl-carousel owl-theme">
                         <div class="item">
@@ -47,35 +47,13 @@
                     <h2 class="title-2"><strong>Ad Details</strong></h2>
                     <div class="row">
                         <div class="ads-details-info col-md-8">
-                            <p class="mb15">@Html.DisplayFor(model => model.FullText)</p>
-                            <ul class="list-circle">
-                                <li><i class="fas fa-check-circle"></i> 256GB PCIe flash storage</li>
-                                <li><i class="fas fa-check-circle"></i> 2.7 GHz dual-core Intel Core i5 processor</li>
-                                <li><i class="fas fa-check-circle"></i> Turbo Boost up to 3.1GHz</li>
-                                <li><i class="fas fa-check-circle"></i> Intel Iris Graphics 6100</li>
-                                <li><i class="fas fa-check-circle"></i> 8GB memory (up from 4GB in 2013 model)</li>
-                                <li><i class="fas fa-check-circle"></i> 10 hour battery life</li>
-                                <li><i class="fas fa-check-circle"></i> 13.3" Retina Display</li>
-                                <li><i class="fas fa-check-circle"></i> Intect Box</li>
-                                <li><i class="fas fa-check-circle"></i> 1 Year international warranty</li>
+                            <p class="mb15">@Html.DisplayFor(model => model.Description)</p>
                         </div>
                         <div class="col-md-4">
                             <aside>
                                 <ul class="panel-details">
                                     <li>
-                                        <p class=" no-margin "><strong>Price:</strong> $1,245</p>
-                                    </li>
-                                    <li>
-                                        <p class="no-margin"><strong>Type:</strong> <a href="#">Electronics</a>, <a href="#">For sale</a></p>
-                                    </li>
-                                    <li>
-                                        <p class="no-margin"><strong>Location:</strong> <a href="#">New York</a></p>
-                                    </li>
-                                    <li>
-                                        <p class=" no-margin "><strong>Condition:</strong> New</p>
-                                    </li>
-                                    <li>
-                                        <p class="no-margin"><strong>Brand:</strong> <a href="#">Apple</a></p>
+                                        <p class=" no-margin "><strong>Price:</strong> AED @Html.DisplayFor(model => model.Price)</p>
                                     </li>
                                 </ul>
                             </aside>
@@ -88,18 +66,6 @@
                                     <li>
                                     <li>
                                         <a href="#">Posted by <i class=" fas fa-user"></i> John</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <i class=" fas fa-heart"></i> Save ad</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <i class="fas fa-share-alt"></i> Share </a>
-                                        <div class="social-link mt-2">
-                                            <a class="twitter" target="_blank" data-original-title="twitter" href="#" data-toggle="tooltip" data-placement="top"><i class="fab fa-twitter"></i></a>
-                                            <a class="facebook" target="_blank" data-original-title="facebook" href="#" data-toggle="tooltip" data-placement="top"><i class="fab fa-facebook-f"></i></a>
-                                            <a class="google" target="_blank" data-original-title="google-plus" href="#" data-toggle="tooltip" data-placement="top"><i class="fab fa-google-plus"></i></a>
-                                            <a class="linkedin" target="_blank" data-original-title="linkedin" href="#" data-toggle="tooltip" data-placement="top"><i class="fab fa-linkedin"></i></a>
-                                        </div>
                                     </li>
                                 </ul>
                             </div>

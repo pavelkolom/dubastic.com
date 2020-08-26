@@ -62,9 +62,5 @@ namespace AdsMaster.DB.Models
 		public List<ForumViewRestriction> ForumViewRestrictions { get; set; }
 		
 		public List<LastForumView> LastForumViews { get; set; }
-
-		public decimal Price { get; set; }
-		
-		public string Image { get; set; }
 	}
 }

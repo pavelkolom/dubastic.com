@@ -17,17 +17,17 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
             _db = db;
         }
 
-        public async Task<IActionResult> Index(int id = 0, int page = 1)
+        public async Task<IActionResult> Index(int category = 0, int page = 1)
         {
-            ViewBag.Category = id;
+            ViewBag.ForumId = category;
             ViewBag.Page = page;
             ViewBag.Title = "Ads Master - Category";
 
             int pageSize = 10;
 
-            IQueryable<Forum> source = _db.Forum
-                .Include(a => a.Category)
-                .Where(a => a.CategoryID == id);
+            IQueryable<Topic> source = _db.Topic
+                .Include(a => a.Forum)
+                .Where(a => a.ForumID == category);
 
             var count = await source.CountAsync();
             var items = await source.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
