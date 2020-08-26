@@ -1,0 +1,105 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model AdsMaster.Mvc.Models.IndexViewModel
+
+@{
+    Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
+}
+
+<!-- Page Header Start -->
+<div class="page-header" style="background: url(../../Classifieds/dist/img/banner1.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-wrapper">
+                    <h2 class="page-title">Search</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Main container Start -->
+<div class="main-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12 page-content">
+                <!-- Product filter Start -->
+                <div class="product-filter">
+                    <div class="grid-list-count">
+                        <a class="list switchToGrid" href="post/details"><i class="fas fa-list"></i></a>
+                        <a class="grid switchToList" href="post/details"><i class="fas fa-th-large"></i></a>
+                    </div>
+                </div>
+                <!-- Product filter End -->
+                <!-- Adds wrapper Start -->
+                <div class="adds-wrapper">
+
+                    @foreach (var item in Model.Items)
+                    {
+                        <div class="item-list">
+                            <div class="row">
+                                <div class="col-sm-2 no-padding photobox">
+                                    <div class="add-image">
+                                        <a href='@Url.Action("details", "post", new { id = item.TopicID }, null)'>
+                                            <img src='@Url.Content("~/Files/" + String.Format("{0}", item.Image))' alt="" />
+                                        </a>
+                                        <span class="photo-count"><i class="fas fa-camera"></i>2</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7 add-desc-box">
+                                    <div class="add-details">
+                                        <h5 class="add-title">
+                                            @Html.ActionLink(item.Title, "details", "post", new { id = item.TopicID }, null)
+                                        </h5>
+                                        <div class="info">
+                                            <span class="date">
+                                                <i class="fas fa-clock"></i>
+                                                @Html.Label(item.LastPostTime.ToString())
+                                            </span>
+                                        </div>
+                                        <div class="item_desc">
+                                            @Html.ActionLink(item.Description, "details", "post", new { id = item.TopicID }, null)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 float-right  price-box">
+                                    <h2 class="item-price">AED @Html.Label("", String.Format("{0}", item.Price))</h2>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                <!-- Adds wrapper End -->
+
+                <div class="col-12">
+                    <!-- Start Pagination -->
+                    <div class="pagination-bar">
+                        <nav>
+                            <ul class="pagination">
+                                @for (var i = 1; i < Model.PageViewModel.TotalPages + 1; i++)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link @(i == @ViewBag.Page ? "active" : "")"
+                                           asp-action="Index"
+                                           asp-route-id="@ViewBag.Category"
+                                           asp-route-page="@i.ToString()">@i.ToString()</a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- End Pagination -->
+
+                    <div class="post-promo text-center">
+                        <h2> Do you get anything for sell ? </h2>
+                        <h5>Sell your products online FOR FREE. It's easier than you think !</h5>
+                        <a href="/Ads/Post/New" class="btn btn-post btn-danger">Post a Free Ad </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main container End -->

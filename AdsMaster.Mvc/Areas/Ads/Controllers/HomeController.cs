@@ -4,6 +4,10 @@ using AdsMaster.Mvc.Areas.Ads.Authorization;
 using AdsMaster.Mvc.Areas.Ads.Extensions;
 using AdsMaster.Mvc.Areas.Ads.Services;
 using PopForums.Services;
+using AdsMaster.DB.Models;
+using System.Linq;
+using AdsMaster.Mvc.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace AdsMaster.Mvc.Areas.Ads.Controllers
 {
@@ -11,12 +15,15 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
 	[TypeFilter(typeof(AdsMasterPrivateForumsFilter))]
 	public class HomeController : Controller
 	{
-		public HomeController(IForumService forumService, IUserService userService, IUserSessionService userSessionService, IUserRetrievalShim userRetrievalShim)
+		private readonly AdsMasterContext _db;
+
+		public HomeController(IForumService forumService, IUserService userService, IUserSessionService userSessionService, IUserRetrievalShim userRetrievalShim, AdsMasterContext db)
 		{
 			_forumService = forumService;
 			_userService = userService;
 			_userSessionService = userSessionService;
 			_userRetrievalShim = userRetrievalShim;
+            _db = db;
 		}
 
 		public static string Name = "Home";
@@ -80,6 +87,32 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
 			return View(await _forumService.GetCategorizedForumContainerFilteredForUser(user));
 		}
 
+		[HttpPost]
+		public async Task<ActionResult> IndexAsync() 
+		{
+			await Task.Run(() => { });
+
+			ViewBag.Title = "Ads Master - Search";
+
+			int pageSize = 10;
+
+			IQueryable<Topic> source = _db.Topic
+				.Include(a => a.Forum)
+				.Where(a => a.ForumID == 41);
+
+			var count = await source.CountAsync();
+			var items = await source.Skip((1 - 1) * pageSize).Take(pageSize).ToListAsync();
+
+			PageViewModel pageViewModel = new PageViewModel(count, 1, pageSize);
+
+			IndexViewModel viewModel = new IndexViewModel
+			{
+				PageViewModel = pageViewModel,
+				Items = items
+			};
+
+			return View("Search", viewModel);
+		}
 
 	}
 }

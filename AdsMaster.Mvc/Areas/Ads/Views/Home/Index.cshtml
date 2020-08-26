@@ -13,15 +13,6 @@
     var profile = UserRetrievalShim.GetProfile();
 }
 
-@*@section HeaderContent{
-            <link rel="sitemap" href="@ViewBag.SitemapUrl" type="application/xml" />
-            <script type="text/javascript">
-                $(function () {
-                    PopForums.homeSetup();
-                });
-            </script>
-    }*@
-
 <!-- Start intro section -->
 <section id="intro" class="section-intro">
     <div class="overlay">
@@ -32,7 +23,7 @@
                 <!-- Start Search box -->
                 <div class="search-bar">
                     <fieldset>
-                        <form class="search-form">
+                        <form class="search-form" method="post">
                             <div class="form-group">
                                 <i class="lni-bullhorn"></i>
                                 <input type="text" name="customword" class="form-control" placeholder="What are you looking for">
@@ -68,7 +59,7 @@
                                     <i class="fas fa-angle-down"></i>
                                 </div>
                             </div>
-                            <button class="btn btn-common" type="button"><i class="lni-search"></i> Search Now</button>
+                            <button class="btn btn-common" type="submit"><i class="lni-search"></i> Search Now</button>
                         </form>
                     </fieldset>
                 </div>
