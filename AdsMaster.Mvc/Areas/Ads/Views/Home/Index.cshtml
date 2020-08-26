@@ -1,4 +1,6 @@
-﻿@using PopForums.Services;
+﻿@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+
+@using PopForums.Services;
 @using PopForums.Models;
 
 @inject IUserRetrievalShim UserRetrievalShim
@@ -112,7 +114,7 @@
                                                 var forum = category.Value[i];
 
                                                 <li data-forumid="@forum.ForumID">
-                                                    <a asp-controller="Forum" asp-action="Index" asp-route-urlName="@forum.UrlName">@forum.Title</a>
+                                                    <a asp-controller="Category" asp-action="Index" asp-route-id="@category.Key.CategoryID" asp-route-category="@forum.ForumID">@forum.Title</a>
                                                     <sapn class="category-counter">@forum.TopicCount.ToString("N0")</sapn>
                                                 </li>
                                             }
