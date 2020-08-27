@@ -88,7 +88,7 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
 		}
 
 		[HttpPost]
-		public async Task<ActionResult> IndexAsync() 
+		public async Task<ActionResult> IndexAsync(string customword) 
 		{
 			await Task.Run(() => { });
 
@@ -98,7 +98,7 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
 
 			IQueryable<Topic> source = _db.Topic
 				.Include(a => a.Forum)
-				.Where(a => a.ForumID == 41);
+				.Where(a => a.Title.Contains(customword) || a.Description.Contains(customword));
 
 			var count = await source.CountAsync();
 			var items = await source.Skip((1 - 1) * pageSize).Take(pageSize).ToListAsync();
