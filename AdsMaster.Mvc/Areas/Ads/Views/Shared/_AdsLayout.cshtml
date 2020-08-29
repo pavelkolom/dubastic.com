@@ -1,156 +1,66 @@
-﻿@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
-
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 @section HeaderContent {
     @RenderSection("HeaderContent", required: false)
-    <environment include="Development">
-        <link rel="shortcut icon" href="~/favicon.ico">
-        <script src="~/lib/signalr/dist/signalr.js"></script>
-        @*<script src="~/lib/PopForums/src/PopForums.js"></script>
-            <link href="~/lib/PopForums/src/PopForums.css" rel="stylesheet" />*@
+<environment include="Development">
+    <link rel="shortcut icon" href="~/favicon.ico">
+    <script src="~/lib/signalr/dist/signalr.js"></script>
+    <script src="~/lib/PopForums/src/PopForums.js"></script>
+    @*  <link href="~/lib/PopForums/src/PopForums.css" rel="stylesheet" />*@
 
-        <!-- Favicon -->
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" type="text/css">
-        <!-- Font Awesome CSS -->
-        <link rel="stylesheet" href="~/Classifieds/dist/fonts/all.min.css" type="text/css">
-        <!-- Line Icons CSS -->
-        <link rel="stylesheet" href="~/Classifieds/dist/fonts/line-icons/line-icons.css" type="text/css">
-        <!-- Animate CSS -->
-        <link rel="stylesheet" href="~/Classifieds/dist/extras/animate.css" type="text/css">
-        <!-- Owl Carousel -->
-        <link rel="stylesheet" href="~/Classifieds/dist/extras/owl.carousel.css" type="text/css">
-        <link rel="stylesheet" href="~/Classifieds/dist/extras/owl.theme.css" type="text/css">
-        <!-- Slicknav js -->
-        <link rel="stylesheet" href="~/lib/slicknav/dist/slicknav.min.css" type="text/css">
-        <!-- Main Styles -->
-        <link rel="stylesheet" href="~/Classifieds/dist/css/main.css" type="text/css">
-        <!-- Responsive CSS Styles -->
-        <link rel="stylesheet" href="~/Classifieds/dist/css/responsive.css" type="text/css">
+    <!-- Favicon -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="~/Classifieds/dist/fonts/all.min.css" type="text/css">
+    <!-- Line Icons CSS -->
+    <link rel="stylesheet" href="~/Classifieds/dist/fonts/line-icons/line-icons.css" type="text/css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="~/Classifieds/dist/extras/animate.css" type="text/css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="~/Classifieds/dist/extras/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="~/Classifieds/dist/extras/owl.theme.css" type="text/css">
+    <!-- Slicknav js -->
+    <link rel="stylesheet" href="~/lib/slicknav/dist/slicknav.min.css" type="text/css">
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="~/Classifieds/dist/css/main.css" type="text/css">
+    <!-- Responsive CSS Styles -->
+    <link rel="stylesheet" href="~/Classifieds/dist/css/responsive.css" type="text/css">
 
-    </environment>
-    <environment exclude="Development">
-        <script src="~/lib/signalr/dist/signalr.min.js"></script>
-        @*<script src="~/lib/PopForums/dist/PopForums.min.js"></script>
-            <link href="~/lib/PopForums/dist/PopForums.min.css" rel="stylesheet"*@ />
+</environment>
+<environment exclude="Development">
+    <script src="~/lib/signalr/dist/signalr.min.js"></script>
+    <script src="~/lib/PopForums/dist/PopForums.min.js"></script>
+    @*  <link href="~/lib/PopForums/dist/PopForums.min.css" rel="stylesheet"*@ />
 
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="~/favicon.ico">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" type="text/css">
-        <!-- Font Awesome CSS -->
-        <link rel="stylesheet" href="~/Classifieds/dist/fonts/all.min.css" type="text/css">
-        <!-- Line Icons CSS -->
-        <link rel="stylesheet" href="~/Classifieds/dist/fonts/line-icons/line-icons.css" type="text/css">
-        <!-- Animate CSS -->
-        <link rel="stylesheet" href="~/Classifieds/dist/extras/animate.css" type="text/css">
-        <!-- Owl Carousel -->
-        <link rel="stylesheet" href="~/Classifieds/dist/extras/owl.carousel.css" type="text/css">
-        <link rel="stylesheet" href="~/Classifieds/dist/extras/owl.theme.css" type="text/css">
-        <!-- Slicknav js -->
-        <link rel="stylesheet" href="~/lib/slicknav/dist/slicknav.min.css" type="text/css">
-        <!-- Main Styles -->
-        <link rel="stylesheet" href="~/Classifieds/dist/css/main.css" type="text/css">
-        <!-- Responsive CSS Styles -->
-        <link rel="stylesheet" href="~/Classifieds/dist/css/responsive.css" type="text/css">
-    </environment>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/favicon.ico">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="~/Classifieds/dist/fonts/all.min.css" type="text/css">
+    <!-- Line Icons CSS -->
+    <link rel="stylesheet" href="~/Classifieds/dist/fonts/line-icons/line-icons.css" type="text/css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="~/Classifieds/dist/extras/animate.css" type="text/css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="~/Classifieds/dist/extras/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="~/Classifieds/dist/extras/owl.theme.css" type="text/css">
+    <!-- Slicknav js -->
+    <link rel="stylesheet" href="~/lib/slicknav/dist/slicknav.min.css" type="text/css">
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="~/Classifieds/dist/css/main.css" type="text/css">
+    <!-- Responsive CSS Styles -->
+    <link rel="stylesheet" href="~/Classifieds/dist/css/responsive.css" type="text/css">
+</environment>
 }
 
-@*@await Component.InvokeAsync("UserNavigation")*@
+@await Component.InvokeAsync("UserNav")
 
-<!-- Header Section Start -->
-<div class="header">
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-inverse fixed-top scrolling-navbar">
-        <div class="container">
-            <div class="theme-header clearfix">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-toggle="collapse" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="lni-menu"></span>
-                        <span class="lni-menu"></span>
-                        <span class="lni-menu"></span>
-                    </button>
-                    <a href="@Url.Action("Index", "Home")" class="navbar-brand"><img src="~/Classifieds/dist/img/logo.png" alt=""></a>
-                </div>
-                <div class="collapse navbar-collapse" id="main-navbar">
-                    <ul class="navbar-nav mr-auto w-100 justify-content-end">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Home
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item active" href="@Url.Action("Index", "Home")">Home 1</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Index1", "Home")">Home 2</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Index2", "Home")">Home 3</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Index", "Category")">
-                                Category
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Pages
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="@Url.Action("Index", "About")">About Us</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Pricing", "About")">Pricing Table</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Details", "Post")">Ads Details</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("New", "Post")">Ads Post</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("PostNotFound", "Post")">404</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("FAQ", "About")">Faq</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Blog
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="@Url.Action("Right", "Blog")">Blog - Right Sidebar</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Left", "Blog")">Blog - Left Sidebar</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Full", "Blog")"> Blog full width </a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Details", "Blog")">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Contact", "About")">
-                                Contact
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="lnr lnr-user"></i> My Account
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="@Url.Action("Index", "Account1")"><i class="lnr lnr-home"></i> Account Home</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("MyAds", "Account1")"><i class="lnr lnr-cart"></i> My Ads</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Favourite", "Account1")"><i class="lnr lnr-heart"></i> Favourite ads</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Archive", "Account1")"><i class="lnr lnr-file-add"></i> Archived</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Login", "Account1")"><i class="lnr lnr-lock"></i> Log In</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Signup", "Account1")"><i class="lnr lnr-user"></i> Signup</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("ForgotPassword", "Account1")"><i class="lnr lnr-sync"></i> Forgot Password</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("CloseAccount", "Account1")"><i class="lnr lnr-cross"></i>Account close</a></li>
-                            </ul>
-                        </li>
-                        <li class="postadd">
-                            <a class="btn btn-common btn-post" href="@Url.Action("New", "Post")"><span class="fas fa-plus-circle"></span> Post an Ad</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="mobile-menu" data-logo="/Classifieds/dist/img/logo-mobile.png"></div>
-    </nav>
-    <!-- Navbar End -->
-</div>
-<!-- Header Section End -->
+
 
 @RenderBody()
 <!-- Footer Section Start -->
