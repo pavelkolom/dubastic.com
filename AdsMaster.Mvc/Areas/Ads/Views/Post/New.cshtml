@@ -1,4 +1,8 @@
-﻿@{
+﻿@using PopForums.Models;
+
+@model CategorizedForumContainer
+
+@{
     Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
 }
 
@@ -35,15 +39,12 @@
                                     <div class="form-group mb-3 tg-inputwithicon">
                                         <label class="control-label">Categories</label>
                                         <div class="tg-select form-control">
-                                            <select>
+                                            <select class="menuCategory" id="x">
                                                 <option value="none">Select Categories</option>
-                                                <option value="none">Mobiles</option>
-                                                <option value="none">Electronics</option>
-                                                <option value="none">Training</option>
-                                                <option value="none">Real Estate</option>
-                                                <option value="none">Services</option>
-                                                <option value="none">Training</option>
-                                                <option value="none">Vehicles</option>
+                                                @foreach (var category in Model.CategoryDictionary)
+                                                {
+                                                    <option value="@category.Key.CategoryID">@category.Key.Title</option>
+                                                }
                                             </select>
                                             <i class="fas fa-angle-down"></i>
                                         </div>
@@ -52,9 +53,8 @@
                                     <div class="form-group mb-3 tg-inputwithicon">
                                         <label class="control-label">Sub Categories</label>
                                         <div class="tg-select form-control">
-                                            <select>
-                                                <option value="41">Item 1</option>
-                                                <option value="42">Item 2</option>
+                                            <select id="xx">
+                                                <option value="none">Select Sub Categories</option>
                                             </select>
                                             <i class="fas fa-angle-down"></i>
                                         </div>

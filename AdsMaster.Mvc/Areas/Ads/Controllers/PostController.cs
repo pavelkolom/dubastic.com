@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using PopForums.Services;
 using System;
 using System.IO;
 using System.Linq;
@@ -14,18 +15,27 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
     public class PostController : Controller
     {
         private readonly AdsMasterContext _db;
-        IWebHostEnvironment _appEnvironment;
+        private readonly IWebHostEnvironment _appEnvironment;
+        private readonly IForumService _forumService;
+        private readonly IUserRetrievalShim _userRetrievalShim;
 
-        public PostController(AdsMasterContext db, IWebHostEnvironment appEnvironment)
+        public PostController(
+            AdsMasterContext db,
+            IWebHostEnvironment appEnvironment,
+            IUserRetrievalShim userRetrievalShim,
+            IForumService forumService)
         {
             _db = db;
             _appEnvironment = appEnvironment;
+            _userRetrievalShim = userRetrievalShim;
+            _forumService = forumService;
         }
 
-        public ViewResult New()
+        public async Task<ViewResult> New()
         {
             ViewBag.Title = "Ads Master - Post new Ad";
-            return View();
+            var user = _userRetrievalShim.GetUser();
+            return View(await _forumService.GetCategorizedForumContainerFilteredForUser(user));
         }
 
         public async Task<ViewResult> DetailsAsync(int id)
