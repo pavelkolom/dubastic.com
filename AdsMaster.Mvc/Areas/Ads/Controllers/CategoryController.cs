@@ -1,7 +1,9 @@
 ﻿using AdsMaster.DB.Models;
 using AdsMaster.Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,7 +29,7 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
 
             IQueryable<Topic> source = _db.Topic
                 .Include(a => a.Forum)
-                .Where(a => a.ForumID == category);
+                .Where(a => a.ForumID == category && !a.IsDeleted);
 
             var count = await source.CountAsync();
             var items = await source.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
@@ -41,6 +43,17 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
             };
 
             return View(viewModel);
+        }
+
+        public JsonResult GetSubCategory(int CategoryID)
+        {
+            List<Forum> sl = new List<Forum>();
+
+            sl = (from su in _db.Forum where su.CategoryID == CategoryID select su).ToList();
+
+            sl.Insert(0, new Forum() { ForumID = 0, Title = "Select" });
+
+            return Json(sl);
         }
     }
 }

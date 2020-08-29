@@ -66,15 +66,16 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
             string phone,
             string address,
             string message,
+            string forumId,
             IFormFile uploadedFile)
         {
             var item = new Topic()
             {
-                ForumID = 41,
+                ForumID = int.Parse(forumId),
                 Title = title,
                 LastPostName = "",
                 UrlName = "",
-                Price = 10,
+                Price = int.Parse(price),
                 AnswerPostID = 0,
                 StartedByName = "",
                 Description = message,

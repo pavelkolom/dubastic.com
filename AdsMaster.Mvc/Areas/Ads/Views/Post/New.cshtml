@@ -18,8 +18,8 @@
         </div>
     </div>
 </div>
-
 <!-- Page Header End -->
+
 <!-- Content section Start -->
 <form method="post" enctype="multipart/form-data">
     <section id="content">
@@ -53,7 +53,7 @@
                                     <div class="form-group mb-3 tg-inputwithicon">
                                         <label class="control-label">Sub Categories</label>
                                         <div class="tg-select form-control">
-                                            <select id="xx">
+                                            <select id="xx" name="forumId">
                                                 <option value="none">Select Sub Categories</option>
                                             </select>
                                             <i class="fas fa-angle-down"></i>
@@ -66,7 +66,6 @@
                                         <div class="tg-checkbox mt-3">
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="tg-priceoncall">
-                                                <label class="custom-control-label" for="tg-priceoncall">Price On Call</label>
                                             </div>
                                         </div>
                                     </div>
@@ -180,17 +179,41 @@
 
 @section scripts
 {
-
     <script type="text/javascript" src="~/lib/summernote/dist/summernote.min.js"></script>
 
     <script>
+        console.log("hi");
+
         $('#summernote').summernote({
             height: 250, // set editor height
             minHeight: null, // set minimum height of editor
             maxHeight: null, // set maximum height of editor
             focus: false // set focus to editable area after initializing summernote
         });
+
+        $("#x").change(function () {
+            var select = document.getElementById("xx");
+            var length = select.options.length;
+            for (i = length - 1; i >= 0; i--) {
+                select.options[i] = null;
+            }
+
+            select.options[select.options.length] = new Option('Select Sub Categories', 'none');
+
+            var url = '@Url.Content("~/")' + "Ads/Category/GetSubCategory";
+            var ddlsource = "#x";
+
+            console.log(url);
+
+            $.getJSON(url, { CategoryID: $(ddlsource).val() }, function (data) {
+                console.log(data);
+
+                var items = '';
+                $.each(data, function (i, product) {
+                    items += "<option value='" + product.forumID + "'>" + product.title + "</option>";
+                });
+                $("#xx").html(items)
+            });
+        });
     </script>
 }
-
-
