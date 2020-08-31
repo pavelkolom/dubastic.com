@@ -8,8 +8,7 @@
     <environment include="Development">
         <link rel="shortcut icon" href="~/favicon.ico">
         <script src="~/lib/signalr/dist/signalr.js"></script>
-    <script src="~/lib/PopForums/src/PopForums.js"></script>
-    @*  <link href="~/lib/PopForums/src/PopForums.css" rel="stylesheet" />*@
+        <script src="~/lib/PopForums/src/PopForums.js"></script>
 
         <!-- Favicon -->
         <!-- Bootstrap CSS -->
@@ -29,13 +28,11 @@
         <link rel="stylesheet" href="~/Classifieds/dist/css/main.css" type="text/css">
         <!-- Responsive CSS Styles -->
         <link rel="stylesheet" href="~/Classifieds/dist/css/responsive.css" type="text/css">
-    @*<link rel="stylesheet" id="colors" href="~/Classifieds/dist/css/colors/pink.css" type="text/css" />
-    <link rel="stylesheet" href="~/Classifieds/dist/css/color-switcher.css" type="text/css" />*@
     </environment>
+
     <environment exclude="Development">
         <script src="~/lib/signalr/dist/signalr.min.js"></script>
-    <script src="~/lib/PopForums/dist/PopForums.min.js"></script>
-    @*  <link href="~/lib/PopForums/dist/PopForums.min.css" rel="stylesheet"*@ />
+        <script src="~/lib/PopForums/dist/PopForums.min.js"></script>
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="~/favicon.ico">
@@ -56,16 +53,13 @@
         <link rel="stylesheet" href="~/Classifieds/dist/css/main.css" type="text/css">
         <!-- Responsive CSS Styles -->
         <link rel="stylesheet" href="~/Classifieds/dist/css/responsive.css" type="text/css">
-    @*<link rel="stylesheet" id="colors" href="~/Classifieds/dist/css/colors/pink.css" type="text/css" />
-    <link rel="stylesheet" href="~/Classifieds/dist/css/color-switcher.css" type="text/css" />*@
     </environment>
 }
 
 @await Component.InvokeAsync("UserNav")
 
-
-
 @RenderBody()
+
 <!-- Footer Section Start -->
 <footer>
     <!-- Footer Area Start -->
@@ -161,6 +155,7 @@
         </div>
     </section>
     <!-- Footer area End -->
+
     <!-- Copyright Start  -->
     <div id="copyright">
         <div class="container">
@@ -194,7 +189,6 @@
         <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="~/lib/jquery.stellar/jquery.stellar.js"></script>
         <script type="text/javascript" src="~/Classifieds/dist/js/owl.carousel.min.js"></script>
-        @*<script type="text/javascript" src="~/Classifieds/dist/js/color-switcher.js"></script>*@
         <script type="text/javascript" src="~/lib/slicknav/dist/jquery.slicknav.min.js"></script>
         <script type="text/javascript" src="~/lib/wowjs/dist/wow.min.js"></script>
         <script type="text/javascript" src="~/lib/jquery.counterup/jquery.counterup.min.js"></script>
@@ -203,6 +197,7 @@
         <script type="text/javascript" src="~/Classifieds/dist/js/contact-form-script.js"></script>
         <script type="text/javascript" src="~/Classifieds/dist/js/main.js"></script>
     </environment>
+
     <environment exclude="Development">
         <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="~/lib/popper.js/dist/popper.min.js"></script>
