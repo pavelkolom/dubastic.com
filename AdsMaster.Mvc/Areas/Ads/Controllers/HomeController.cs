@@ -57,7 +57,7 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
 
             IQueryable<Topic> source = _db.Topic
                 .Include(a => a.Forum)
-                .Where(a => a.Title.Contains(customword) || a.Description.Contains(customword));
+                .Where(a => (a.Title.Contains(customword) || a.Description.Contains(customword)) && !a.IsDeleted && a.IsModerated);
 
             var count = await source.CountAsync();
             var items = await source.Skip((1 - 1) * pageSize).Take(pageSize).ToListAsync();

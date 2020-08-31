@@ -29,7 +29,7 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
 
             IQueryable<Topic> source = _db.Topic
                 .Include(a => a.Forum)
-                .Where(a => a.ForumID == category && !a.IsDeleted);
+                .Where(a => a.ForumID == category && !a.IsDeleted && a.IsModerated);
 
             var count = await source.CountAsync();
             var items = await source.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();

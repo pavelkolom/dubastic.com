@@ -41,7 +41,7 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
         public async Task<ViewResult> DetailsAsync(int id)
         {
             ViewBag.Title = "Ads Master - Details";
-            
+
             var item = await _db.Topic
                 .Where(o => o.TopicID == id)
                 .FirstOrDefaultAsync();
@@ -79,6 +79,7 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
                 AnswerPostID = 0,
                 StartedByName = "",
                 Description = message,
+                IsModerated = false,
             };
 
             if (uploadedFile != null)

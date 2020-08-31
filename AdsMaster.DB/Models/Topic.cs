@@ -72,5 +72,6 @@ namespace AdsMaster.DB.Models
 
 		public string Description { get; set; }
 
+		public bool IsModerated { get; set; }
 	}
 }
