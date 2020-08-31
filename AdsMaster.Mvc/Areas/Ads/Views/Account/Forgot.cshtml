@@ -1,0 +1,50 @@
+﻿@using PopForums.Configuration
+@inject ISettingsManager SettingsManager
+@{
+    ViewBag.Title = PopForums.Resources.ForgotPassword;
+    Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
+}
+
+@*<div>
+        <h1>@PopForums.Resources.ForgotPassword</h1>
+        @if (!SettingsManager.Current.IsPrivateForumInstance)
+        {
+            <ul id="TopBreadcrumb" class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-controller="@HomeController.Name" asp-action="Index">@PopForums.Resources.Forums</a></li>
+            </ul>
+        }
+    </div>*@
+
+<!-- Page Header Start -->
+<div class="page-header" style="background: url(../../Classifieds/dist/img/banner1.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-wrapper">
+                    <h2 class="page-title">@PopForums.Resources.ForgotPassword</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>@PopForums.Resources.ForgotInstructions</p>
+
+                <form asp-action="Forgot" method="post" role="form">
+                    <div class="form-group">
+                        <input name="Email" class="form-control" />
+                    </div>
+                    <input type="submit" value="@PopForums.Resources.SendEmailButton" class="btn btn-primary" />
+                    @if (ViewBag.Result != null)
+                    {<span class="alert alert-warning ml-3">@ViewBag.Result</span>}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

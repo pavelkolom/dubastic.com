@@ -1,55 +1,95 @@
-﻿@{
-	Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
+﻿@using PopForums.Services;
+@using AdsMaster.Mvc.Areas.Ads.Controllers;
+@inject IUserRetrievalShim UserRetrievalShim
+@inject ISettingsManager SettingsManager
+@using PopForums.Configuration
+@model Dictionary<PopIdentity.ProviderType, string>
+@{
+    ViewBag.Title = PopForums.Resources.Login;
+    Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
+    var user = UserRetrievalShim.GetUser();
 }
+
+@section HeaderContent
+{
+    <script language="javascript" type="text/javascript">
+        $(function () {
+            $("#LoginButton").click(PopForums.processLogin);
+            $("#EmailLogin,#PasswordLogin").keydown(function (e) { if (e.keyCode == 13) PopForums.processLogin(); });
+        });
+    </script>
+}
+
 
 <!-- Page Header Start -->
 <div class="page-header" style="background: url(../../Classifieds/dist/img/banner1.jpg);">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="breadcrumb-wrapper">
-					<h2 class="page-title">Login to account</h2>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-wrapper">
+                    <h2 class="page-title">@PopForums.Resources.Login</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- Page Header End -->
-<!-- Content section Start -->
+
+
 <section id="content">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-4">
-				<div class="page-login-form box">
-					<h3>
-						Login
-					</h3>
-					<form role="form" class="login-form">
-						<div class="form-group">
-							<div class="input-icon">
-								<i class="icon fas fa-user"></i>
-								<input type="text" id="sender-email" class="form-control" name="email" placeholder="Username">
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="input-icon">
-								<i class="icon fas fa-unlock-alt"></i>
-								<input type="password" class="form-control" placeholder="Password">
-							</div>
-						</div>
-						<div class="checkbox">
-							<input type="checkbox" id="remember" name="rememberme" value="forever" style="float: left;">
-							<label for="remember">Remember me</label>
-						</div>
-						<button class="btn btn-common log-btn">Submit</button>
-					</form>
-					<ul class="form-links">
-						<li class="float-left"><a href="signup.html">Don't have an account?</a></li>
-						<li class="float-right"><a href="forgot-password.html">Lost your password?</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                @*<div>
+
+                    @if (!SettingsManager.Current.IsPrivateForumInstance)
+                    {
+                        <ul id="TopBreadcrumb" class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-controller="@HomeController.Name" asp-action="Index">@PopForums.Resources.Forums</a></li>
+                        </ul>
+                    }
+                </div>*@
+
+                <div id="LoginResult" class="alert alert-danger @if (String.IsNullOrWhiteSpace(Context.Request.Query["error"])){<text> d-none</text>}">@Context.Request.Query["error"]</div>
+
+                @if (user == null)
+                {
+                    <div role="form">
+                        <div class="form-group">
+                            <label for="EmailLogin">@PopForums.Resources.Email</label>
+                            <input type="text" name="EmailLogin" id="EmailLogin" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="PasswordLogin">@PopForums.Resources.Password</label>
+                            <input type="password" name="PasswordLogin" id="PasswordLogin" class="form-control" />
+                        </div>
+                        <input id="LoginButton" type="button" value="@PopForums.Resources.Login" class="btn btn-primary" />
+                    </div>
+
+                    if (Model.Count > 0)
+                    {
+                        <form asp-controller="Identity" asp-action="ExternalLogin" asp-route-ReturnUrl="@ViewBag.Referrer">
+                            @Html.AntiForgeryToken()
+                            <h2 class="page-title">@PopForums.Resources.ExternalLogins</h2>
+                            <p>
+                                @foreach (var item in Model)
+                                {
+                                    <button type="submit" id="@item.Key" name="provider" value="@item.Key" class="btn btn-primary">@item.Value</button>
+                                }
+                            </p>
+                        </form>
+                    }
+
+                    <p>@PopForums.Resources.NotRegisteredQuestion <a asp-action="Create">@PopForums.Resources.CreateAnAccount</a>. <a asp-action="Forgot">@PopForums.Resources.ForgotPasswordQuestion</a></p>
+
+                    <input type="hidden" id="Referrer" value="@((object)ViewBag.Referrer)" />
+                }
+                else
+                {
+                    <p>@PopForums.Resources.LoginAlready</p>
+                }
+            </div>
+        </div>
+    </div>
 </section>
-<!-- Content section End -->

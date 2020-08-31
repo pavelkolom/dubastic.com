@@ -10,32 +10,32 @@ jQuery(document).ready(function($) {
 	"use strict"
 
 	$("ul.colors .color1" ).click(function(){
-		$("#colors").attr("href", "../../Classifieds/dist/css/colors/blue.css" );
+		$("#colors").attr("href", "/Classifieds/dist/css/colors/blue.css" );
 		return false;
 	});
 
 	$("ul.colors .color2" ).click(function(){
-		$("#colors").attr("href", "../../Classifieds/dist/css/colors/green.css" );
+		$("#colors").attr("href", "/Classifieds/dist/css/colors/green.css" );
 		return false;
 	});
 	
 	$("ul.colors .color3" ).click(function(){
-		$("#colors").attr("href", "../../Classifieds/dist/css/colors/pink.css" );
+		$("#colors").attr("href", "/Classifieds/dist/css/colors/pink.css" );
 		return false;
 	});
 
 	$("ul.colors .color4" ).click(function(){
-		$("#colors").attr("href", "../../Classifieds/dist/css/colors/purple.css" );
+		$("#colors").attr("href", "/Classifieds/dist/css/colors/purple.css" );
 		return false;
 	});
 
 	$("ul.colors .color5" ).click(function(){
-		$("#colors").attr("href", "../../Classifieds/dist/css/colors/cyan.css" );
+		$("#colors").attr("href", "/Classifieds/dist/css/colors/cyan.css" );
 		return false;
 	});
 
 	$("ul.colors .color6" ).click(function(){
-		$("#colors").attr("href", "../../Classifieds/dist/css/colors/yellow.css" );
+		$("#colors").attr("href", "/Classifieds/dist/css/colors/yellow.css" );
 		return false;
 	});
 
@@ -63,17 +63,17 @@ jQuery(document).ready(function($) {
 
 
 //Inject Necessary Styles and HTML
-jQuery('head').append('<link rel="stylesheet" id="colors" href="../../Classifieds/dist/css/colors/pink.css" type="text/css" />');
-jQuery('head').append('<link rel="stylesheet" href="../../Classifieds/dist/css/color-switcher.css" type="text/css" />'); 
+jQuery('head').append('<link rel="stylesheet" id="colors" href="/Classifieds/dist/css/colors/pink.css" type="text/css" />');
+jQuery('head').append('<link rel="stylesheet" href="/Classifieds/dist/css/color-switcher.css" type="text/css" />'); 
 
 jQuery('body').append('' + 
 	'<div id="color-style-switcher">' +
 		'<div>' + 
 			'<h3>Color Palette</h3>' +
 			'<ul class="colors">' +
-				'<li><a class="color1 active" href="#"></a></li>' +
+				'<li><a class="color1" href="#"></a></li>' +
 				'<li><a class="color2" href="#"></a></li>' +
-				'<li><a class="color3" href="#"></a></li>' +
+				'<li><a class="color3" active href="#"></a></li>' +
 				'<li><a class="color4" href="#"></a></li>' +
 				'<li><a class="color5" href="#"></a></li>' +
 				'<li><a class="color6" href="#"></a></li>' +
