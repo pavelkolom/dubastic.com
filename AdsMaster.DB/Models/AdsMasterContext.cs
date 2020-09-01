@@ -490,7 +490,7 @@ namespace AdsMaster.DB.Models
 					UserID = 1,
 					Name = "admin",
 					Email = "admin@example.com",
-					CreationDate = DateTime.Now,
+					CreationDate = new DateTime(2020,1,1,1,1,1),
 					IsApproved = true,
 					Password = "Sfs6ISr+llki1CIN1uszDNgd57zKB7QFd+jcIv9KkTA=",
 					AuthorizationKey = new Guid("5F8462D6-7B5C-4226-99B9-2D0C749FD3B2"),
@@ -532,7 +532,7 @@ namespace AdsMaster.DB.Models
 
 
 			modelBuilder.Entity<SecurityLogEntry>().HasData(
-				new  { SecurityLogID = 1, SecurityLogType = SecurityLogType.UserCreated, UserID = 1, TargetUserID = 1, IP = "", Message = "", ActivityDate = DateTime.Now }
+				new  { SecurityLogID = 1, SecurityLogType = SecurityLogType.UserCreated, UserID = 1, TargetUserID = 1, IP = "", Message = "", ActivityDate = new DateTime(2020, 1, 1, 1, 1, 1) }
 				);
 
 

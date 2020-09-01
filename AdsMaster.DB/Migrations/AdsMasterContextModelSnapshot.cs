@@ -1456,7 +1456,7 @@ namespace AdsMaster.DB.Migrations
                         new
                         {
                             SecurityLogID = 1,
-                            ActivityDate = new DateTime(2020, 8, 31, 18, 44, 50, 362, DateTimeKind.Local).AddTicks(2183),
+                            ActivityDate = new DateTime(2020, 1, 1, 1, 1, 1, 0, DateTimeKind.Unspecified),
                             IP = "",
                             Message = "",
                             SecurityLogType = 6,
@@ -1685,7 +1685,7 @@ namespace AdsMaster.DB.Migrations
                         {
                             UserID = 1,
                             AuthorizationKey = new Guid("5f8462d6-7b5c-4226-99b9-2d0c749fd3b2"),
-                            CreationDate = new DateTime(2020, 8, 31, 18, 44, 50, 326, DateTimeKind.Local).AddTicks(3057),
+                            CreationDate = new DateTime(2020, 1, 1, 1, 1, 1, 0, DateTimeKind.Unspecified),
                             Email = "admin@example.com",
                             IsApproved = true,
                             Name = "admin",
