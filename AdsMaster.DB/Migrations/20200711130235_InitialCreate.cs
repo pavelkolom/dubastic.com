@@ -963,7 +963,7 @@ namespace AdsMaster.DB.Migrations
             migrationBuilder.InsertData(
                 table: "pf_PopForumsUser",
                 columns: new[] { "UserID", "AuthorizationKey", "CreationDate", "Email", "IsApproved", "Name", "Password", "Salt" },
-                values: new object[] { 1, new Guid("5f8462d6-7b5c-4226-99b9-2d0c749fd3b2"), new DateTime(1, 1, 1, 1, 1, 1, 1, DateTimeKind.Unspecified), "admin@example.com", true, "admin", "Sfs6ISr+llki1CIN1uszDNgd57zKB7QFd+jcIv9KkTA=", new Guid("6baeb19b-cde3-40cd-b42c-dcc6211bb679") });
+                values: new object[] { 1, new Guid("5f8462d6-7b5c-4226-99b9-2d0c749fd3b2"), new DateTime(2020, 1, 1, 1, 1, 1, DateTimeKind.Unspecified), "admin@example.com", true, "admin", "Sfs6ISr+llki1CIN1uszDNgd57zKB7QFd+jcIv9KkTA=", new Guid("6baeb19b-cde3-40cd-b42c-dcc6211bb679") });
 
             migrationBuilder.InsertData(
                 table: "pf_Role",
@@ -977,7 +977,7 @@ namespace AdsMaster.DB.Migrations
             migrationBuilder.InsertData(
                 table: "pf_SecurityLog",
                 columns: new[] { "SecurityLogID", "ActivityDate", "IP", "Message", "SecurityLogType", "TargetUserID", "UserID" },
-                values: new object[] { 1, new DateTime(1, 1, 1, 1, 1, 1, 1, DateTimeKind.Unspecified), "", "", 6, 1, 1 });
+                values: new object[] { 1, new DateTime(2020, 1, 1, 1, 1, 1, DateTimeKind.Unspecified), "", "", 6, 1, 1 });
 
             migrationBuilder.InsertData(
                 table: "pf_Setting",
