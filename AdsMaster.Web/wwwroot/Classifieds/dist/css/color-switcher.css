@@ -12,6 +12,7 @@
     top: 250px;
     width: 150px;
     z-index: 9999;
+    display:block;
 }
 #color-style-switcher div {
     padding: 5px 10px;
@@ -87,13 +88,13 @@ ul.colors li a.color1.active:after, ul.colors li a.color8.active:after{
 /* Colors */
 
 /* light-version */
-ul.colors .color1 {
+ul.colors .color3 {
      background: #03A9F4;  /* blue */
 }
 ul.colors .color2 {
      background: #00E676;  /* green */
 }
-ul.colors .color3 {
+ul.colors .color1 {
     background: #E91E63; /* Pink */
 }
 ul.colors .color4 {

@@ -4,14 +4,16 @@ using AdsMaster.DB.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AdsMaster.DB.Migrations
 {
     [DbContext(typeof(AdsMasterContext))]
-    partial class AdsMasterContextModelSnapshot : ModelSnapshot
+    [Migration("20200822202448_MakeChanges-v2")]
+    partial class MakeChangesv2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -275,6 +277,9 @@ namespace AdsMaster.DB.Migrations
                     b.Property<string>("ForumAdapterName")
                         .HasColumnType("NVARCHAR(256)");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsArchived")
                         .HasColumnType("bit");
 
@@ -293,6 +298,9 @@ namespace AdsMaster.DB.Migrations
 
                     b.Property<int>("PostCount")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("SortOrder")
                         .HasColumnType("int");
@@ -1456,7 +1464,7 @@ namespace AdsMaster.DB.Migrations
                         new
                         {
                             SecurityLogID = 1,
-                            ActivityDate = new DateTime(2020, 8, 31, 18, 44, 50, 362, DateTimeKind.Local).AddTicks(2183),
+                            ActivityDate = new DateTime(2020, 8, 23, 0, 24, 47, 828, DateTimeKind.Local).AddTicks(1717),
                             IP = "",
                             Message = "",
                             SecurityLogType = 6,
@@ -1524,22 +1532,13 @@ namespace AdsMaster.DB.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("ForumID")
                         .HasColumnType("int");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsClosed")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsModerated")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsPinned")
@@ -1554,9 +1553,6 @@ namespace AdsMaster.DB.Migrations
 
                     b.Property<int>("LastPostUserID")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ReplyCount")
                         .HasColumnType("int");
@@ -1685,7 +1681,7 @@ namespace AdsMaster.DB.Migrations
                         {
                             UserID = 1,
                             AuthorizationKey = new Guid("5f8462d6-7b5c-4226-99b9-2d0c749fd3b2"),
-                            CreationDate = new DateTime(2020, 8, 31, 18, 44, 50, 326, DateTimeKind.Local).AddTicks(3057),
+                            CreationDate = new DateTime(2020, 8, 23, 0, 24, 47, 798, DateTimeKind.Local).AddTicks(1336),
                             Email = "admin@example.com",
                             IsApproved = true,
                             Name = "admin",

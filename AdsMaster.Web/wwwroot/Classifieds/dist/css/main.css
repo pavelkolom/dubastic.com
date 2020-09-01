@@ -4206,3 +4206,8 @@ footer .menu li a:hover {
 .social-icon .linkedin:hover {
   background-color: #007bb5;
 }
+
+.bb {
+    float: right;
+    right: 5px !important;
+}

@@ -4,14 +4,16 @@ using AdsMaster.DB.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AdsMaster.DB.Migrations
 {
     [DbContext(typeof(AdsMasterContext))]
-    partial class AdsMasterContextModelSnapshot : ModelSnapshot
+    [Migration("20200826150722_MakeChanges-v4")]
+    partial class MakeChangesv4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1456,7 +1458,7 @@ namespace AdsMaster.DB.Migrations
                         new
                         {
                             SecurityLogID = 1,
-                            ActivityDate = new DateTime(2020, 8, 31, 18, 44, 50, 362, DateTimeKind.Local).AddTicks(2183),
+                            ActivityDate = new DateTime(2020, 8, 26, 19, 7, 21, 602, DateTimeKind.Local).AddTicks(6115),
                             IP = "",
                             Message = "",
                             SecurityLogType = 6,
@@ -1537,9 +1539,6 @@ namespace AdsMaster.DB.Migrations
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsModerated")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsPinned")
@@ -1685,7 +1684,7 @@ namespace AdsMaster.DB.Migrations
                         {
                             UserID = 1,
                             AuthorizationKey = new Guid("5f8462d6-7b5c-4226-99b9-2d0c749fd3b2"),
-                            CreationDate = new DateTime(2020, 8, 31, 18, 44, 50, 326, DateTimeKind.Local).AddTicks(3057),
+                            CreationDate = new DateTime(2020, 8, 26, 19, 7, 21, 569, DateTimeKind.Local).AddTicks(9567),
                             Email = "admin@example.com",
                             IsApproved = true,
                             Name = "admin",

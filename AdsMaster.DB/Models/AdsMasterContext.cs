@@ -6,6 +6,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
 
+/*
+ * Open Package Manager Console
+ * Choose project with database
+ * Run commands:
+ *    Add-Migration MakeChanges(-v2) (or other name, change on every update)
+ *    update-database
+ */
+
 namespace AdsMaster.DB.Models
 {
 	public class AdsMasterContext : DbContext
@@ -17,8 +25,7 @@ namespace AdsMaster.DB.Models
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			//optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=adsdubai;Trusted_Connection=True;");
-			optionsBuilder.UseSqlServer(@"Server=18.156.26.156;Database=popforums16;User=popforumsadmin;Password=V$67sl,R8q23");
+			optionsBuilder.UseSqlServer(@"Server=.\MSSQLSERVER01;Database=adsdubai;Trusted_Connection=True;");
 		}
 
 		public DbSet<Category> Category { get; set; }

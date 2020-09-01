@@ -66,5 +66,12 @@ namespace AdsMaster.DB.Models
 		public List<SubscribeTopic> SubscribeTopics { get; set; }
 		public List<Favorite> Favorites { get; set; }
 
+		public decimal Price { get; set; }
+
+		public string Image { get; set; }
+
+		public string Description { get; set; }
+
+		public bool IsModerated { get; set; }
 	}
 }

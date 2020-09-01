@@ -1,4 +1,6 @@
-﻿@using PopForums.Services;
+﻿@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+
+@using PopForums.Services;
 @using PopForums.Models;
 
 @inject IUserRetrievalShim UserRetrievalShim
@@ -11,71 +13,33 @@
     var profile = UserRetrievalShim.GetProfile();
 }
 
-@*@section HeaderContent{
-        <link rel="sitemap" href="@ViewBag.SitemapUrl" type="application/xml" />
-        <script type="text/javascript">
-            $(function () {
-                PopForums.homeSetup();
-            });
-        </script>
-}*@
-
 <!-- Start intro section -->
 <section id="intro" class="section-intro">
     <div class="overlay">
         <div class="container">
             <div class="main-text">
-                <h1 class="intro-title">Welcome To <span>ADS MASTER</span></h1>
+                <h1 class="intro-title">Welcome To <span>DUBASTIC</span></h1>
                 <p class="sub-title">Buy and sell everything from used cars to mobile phones and computers, or search for property, jobs and more</p>
-                <!-- Start Search box -->
+                <!-- Start Search Box -->
                 <div class="search-bar">
                     <fieldset>
-                        <form class="search-form">
+                        <form class="search-form" method="get" action="/Ads/Category/">
                             <div class="form-group">
                                 <i class="lni-bullhorn"></i>
-                                <input type="text" name="customword" class="form-control" placeholder="What are you looking for">
+                                <input type="text" name="q" class="form-control" placeholder="What are you looking for">
                             </div>
-                            <div class="form-group">
-                                <div class="tg-select">
-                                    <select>
-                                        <option value="none">All Locations</option>
-                                        <option value="none">Community</option>
-                                        <option value="none">Items For Sale</option>
-                                        <option value="none">Jobs</option>
-                                        <option value="none">Personals</option>
-                                        <option value="none">Real Estate</option>
-                                        <option value="none">Services</option>
-                                        <option value="none">Vehicles</option>
-                                    </select>
-                                    <i class="fas fa-angle-down"></i>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="tg-select">
-                                    <select>
-                                        <option value="none">All Locations</option>
-                                        <option value="none">New York</option>
-                                        <option value="none">California</option>
-                                        <option value="none">Training</option>
-                                        <option value="none">Washington</option>
-                                        <option value="none">Birmingham</option>
-                                        <option value="none">Chicago</option>
-                                        <option value="none">Phoenix</option>
-                                        <i class="lnr-chevron-down"></i>
-                                    </select>
-                                    <i class="fas fa-angle-down"></i>
-                                </div>
-                            </div>
-                            <button class="btn btn-common" type="button"><i class="lni-search"></i> Search Now</button>
+                            <button class="btn btn-common bb" type="submit">
+                                <i class="lni-search"></i>Search Now
+                            </button>
                         </form>
                     </fieldset>
                 </div>
-                <!-- End Search box -->
+                <!-- End Search Box -->
             </div>
         </div>
     </div>
 </section>
-<!-- end intro section -->
+<!-- End Intro Section -->
 
 
 <div class="wrapper">
@@ -87,82 +51,72 @@
                     <h3 class="section-title">Browse Ads from Categories</h3>
                 </div>
                 @{
-                  int k = 0;
-                  foreach (var category in Model.CategoryDictionary)
-                  {
-                      k += 1; 
-                    <div class="col-lg-3 col-md-6 col-xs-12">
-                        <div class="@("category-box border-" + (k%8 + 1).ToString() + " wow fadeInUpQuick")" data-wow-delay="0.1s">
-                            <div class="icon">
-                                <a href="category.html"><i class="@("lnr " + AdsMaster.Mvc.Areas.Ads.Services.IconService.GetIcon(category.Key.Title) + " color-" + (k%8 + 1).ToString())"></i></a>
-                            </div>
-                            <div class="category-header">
-                                <a href="category.html"><h4>@category.Key.Title</h4></a>
-                            </div>
-                            <div class="category-content">
-                                @if (category.Value.Count > 0)
-                                {
-                                <ul style="margin:0px;">
-                                    @for (int i = 0; i < category.Value.Count && i < 5; i++)// var forum in category.Value)
+                    int k = 0;
+                    foreach (var category in Model.CategoryDictionary)
+                    {
+                        k += 1;
+                        <div class="col-lg-3 col-md-6 col-xs-12">
+                            <div class="@("category-box border-" + (k%8 + 1).ToString() + " wow fadeInUpQuick")" data-wow-delay="0.1s">
+                                <div class="icon">
+                                    <a href="./Ads/Category/Index/@category.Key.CategoryID">
+                                        <i class="@("lnr " + AdsMaster.Mvc.Areas.Ads.Services.IconService.GetIcon(category.Key.Title) + " color-" + (k%8 + 1).ToString())"></i>
+                                    </a>
+                                </div>
+                                <div class="category-header">
+                                    <a href="./Ads/Category/Index/@category.Key.CategoryID">
+                                        <h4>@category.Key.Title</h4>
+                                    </a>
+                                </div>
+                                <div class="category-content">
+                                    @if (category.Value.Count > 0)
                                     {
-                                        var forum = category.Value[i];
+                                        <ul style="margin:0px;">
+                                            @for (int i = 0; i < category.Value.Count && i < 5; i++)// var forum in category.Value)
+                                            {
+                                                var forum = category.Value[i];
 
-                                        <li data-forumid="@forum.ForumID">
-                                            <a asp-controller="Forum" asp-action="Index" asp-route-urlName="@forum.UrlName">@forum.Title</a>
-                                            <sapn class="category-counter">@forum.TopicCount.ToString("N0")</sapn>
-                                        </li>
+                                                <li data-forumid="@forum.ForumID">
+                                                    <a asp-controller="Category" asp-action="Index" asp-route-id="@category.Key.CategoryID" asp-route-category="@forum.ForumID">@forum.Title</a>
+                                                </li>
+                                            }
+                                            @if (category.Value.Count > 5)
+                                            {
+                                                <li id="@("btnExpand" + category.Key.CategoryID)">
+                                                    <a href="@("javascript:expand(" + category.Key.CategoryID + ")")">More →</a>
+                                                </li>
+                                            }
+                                        </ul>
                                     }
                                     @if (category.Value.Count > 5)
                                     {
-                                        <li id="@("btnExpand" + category.Key.CategoryID)">
-                                            <a href="@("javascript:expand(" + category.Key.CategoryID + ")")">More →</a>
-                                        </li>
+                                        <ul style="margin:0px;display:none;" id="@("myDIV" + category.Key.CategoryID)">
+
+                                            @for (int i = 5; i < category.Value.Count; i++)// var forum in category.Value)
+                                            {
+                                                var forum = category.Value[i];
+                                                <li data-forumid="@forum.ForumID">
+                                                    <a asp-controller="Forum" asp-action="Index" asp-route-urlName="@forum.UrlName">@forum.Title</a>
+                                                </li>
+                                            }
+
+                                            @if (category.Value.Count > 5)
+                                            {
+                                                <li style="display:none;" id="@("btnCollapse" + category.Key.CategoryID)">
+                                                    <a href="@("javascript:collapse(" + category.Key.CategoryID + ")")">Less →</a>
+                                                </li>
+                                            }
+                                        </ul>
                                     }
-                                </ul>
-                                }
-                                @if (category.Value.Count > 5)
-                                {
-                                    <ul style="margin:0px;display:none;"  id="@("myDIV" + category.Key.CategoryID)">
-                                        
-                                        @for (int i = 5; i < category.Value.Count; i++)// var forum in category.Value)
-                                        {
-                                            var forum = category.Value[i];
-                                            <li data-forumid="@forum.ForumID">
-                                                <a asp-controller="Forum" asp-action="Index" asp-route-urlName="@forum.UrlName">@forum.Title</a>
-                                                <sapn class="category-counter">@forum.TopicCount.ToString("N0")</sapn>
-                                            </li>
-                                        }
-                                    @if (category.Value.Count > 5)
-                                    {
-                                        <li style="display:none;" id="@("btnCollapse" + category.Key.CategoryID)">
-                                            <a href="@("javascript:collapse(" + category.Key.CategoryID + ")")">Less →</a>
-                                        </li>
-                                    }
-                                    </ul>
-                                }
+                                </div>
                             </div>
                         </div>
-                    </div>
-                }
+                    }
                 }
             </div>
         </div>
     </section>
     <!-- Categories Homepage Section End -->
-
 </div>
-
-
-
-@*<div>
-        <h3>@PopForums.Resources.UsersOnline</h3>
-        <p>
-            @PopForums.Resources.Total: @ViewBag.TotalUsers@foreach (var u in (List<PopForums.Models.User>)ViewBag.OnlineUsers)
-            {<text>, </text><a asp-controller="Account" asp-action="ViewProfile" asp-route-id="@u.UserID">@u.Name</a>}
-        </p>
-        <p>@PopForums.Resources.TotalTopics: @ViewBag.TopicCount, @PopForums.Resources.TotalPosts: @ViewBag.PostCount, @PopForums.Resources.RegisteredUsers: @ViewBag.RegisteredUsers</p>
-    </div>*@
-
 
 @section scripts
 {

@@ -6,30 +6,19 @@
     Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
 }
 
-<!-- Search wrapper Start -->
-<div id="search-row-wrapper">
+<!-- Page Header Start -->
+<div class="page-header" style="background: url(../../Classifieds/dist/img/banner1.jpg);">
     <div class="container">
-        <div class="search-inner">
-            <!-- Start Search box -->
-            <div class="search-bar row">
-                <fieldset>
-                    <form class="search-form" method="get" action="/Ads/Category/">
-                        <div class="form-group">
-                            <i class="lni-bullhorn"></i>
-                            <input type="text" name="q" class="form-control" placeholder="What are you looking for">
-                        </div>
-                        <button class="btn btn-common bb" type="submit">
-                            <i class="lni-search"></i>Search Now
-                        </button>
-                    </form>
-                </fieldset>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-wrapper">
+                    <h2 class="page-title">Search</h2>
+                </div>
             </div>
-            <!-- End Search box -->
         </div>
     </div>
 </div>
-<!-- Search wrapper End -->
-
+<!-- Page Header End -->
 <!-- Main container Start -->
 <div class="main-container">
     <div class="container">
@@ -55,6 +44,7 @@
                                         <a href='@Url.Action("details", "post", new { id = item.TopicID }, null)'>
                                             <img src='@Url.Content("~/Files/" + String.Format("{0}", item.Image))' alt="" />
                                         </a>
+                                        <span class="photo-count"><i class="fas fa-camera"></i>2</span>
                                     </div>
                                 </div>
                                 <div class="col-sm-7 add-desc-box">
