@@ -9,7 +9,7 @@ window.console = window.console || (function(){
 jQuery(document).ready(function($) {
 	"use strict"
 
-	$("ul.colors .color1" ).click(function(){
+	$("ul.colors .color3" ).click(function(){
 		$("#colors").attr("href", "/Classifieds/dist/css/colors/blue.css" );
 		return false;
 	});
@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
 		return false;
 	});
 	
-	$("ul.colors .color3" ).click(function(){
+	$("ul.colors .color1" ).click(function(){
 		$("#colors").attr("href", "/Classifieds/dist/css/colors/pink.css" );
 		return false;
 	});
@@ -71,9 +71,9 @@ jQuery('body').append('' +
 		'<div>' + 
 			'<h3>Color Palette</h3>' +
 			'<ul class="colors">' +
-				'<li><a class="color1" href="#"></a></li>' +
+				'<li><a class="color1" active href="#"></a></li>' +
 				'<li><a class="color2" href="#"></a></li>' +
-				'<li><a class="color3" active href="#"></a></li>' +
+				'<li><a class="color3" href="#"></a></li>' +
 				'<li><a class="color4" href="#"></a></li>' +
 				'<li><a class="color5" href="#"></a></li>' +
 				'<li><a class="color6" href="#"></a></li>' +

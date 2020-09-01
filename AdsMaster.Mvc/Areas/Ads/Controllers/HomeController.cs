@@ -51,7 +51,7 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
         {
             await Task.Run(() => { });
 
-            ViewBag.Title = "Ads Master - Search";
+            ViewBag.Title = "Dubastic - Search";
 
             int pageSize = 10;
 
