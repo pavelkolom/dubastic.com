@@ -1,7 +1,6 @@
 ﻿using AdsMaster.DB.Models;
 using AdsMaster.Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +18,7 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
             _db = db;
         }
 
-        public async Task<IActionResult> Index(int category = 0, int page = 1)
+        public async Task<IActionResult> Index(string q, int category = 0, int page = 1)
         {
             ViewBag.ForumId = category;
             ViewBag.Page = page;
@@ -29,7 +28,12 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
 
             IQueryable<Topic> source = _db.Topic
                 .Include(a => a.Forum)
-                .Where(a => a.ForumID == category && !a.IsDeleted);
+                .Where(a => a.ForumID == category && !a.IsDeleted && a.IsModerated);
+
+            if (!string.IsNullOrEmpty(q))
+                source = _db.Topic
+                    .Include(a => a.Forum)
+                    .Where(a => (a.Title.Contains(q) || a.Description.Contains(q)) && !a.IsDeleted && a.IsModerated);
 
             var count = await source.CountAsync();
             var items = await source.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();

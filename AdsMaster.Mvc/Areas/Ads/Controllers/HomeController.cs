@@ -1,11 +1,8 @@
 ﻿using AdsMaster.DB.Models;
 using AdsMaster.Mvc.Areas.Ads.Authorization;
 using AdsMaster.Mvc.Areas.Ads.Extensions;
-using AdsMaster.Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using PopForums.Services;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace AdsMaster.Mvc.Areas.Ads.Controllers
@@ -45,33 +42,5 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
             ViewBag.SitemapUrl = this.FullUrlHelper("Index", SitemapController.Name);
             return View(await _forumService.GetCategorizedForumContainerFilteredForUser(user));
         }
-
-        [HttpPost]
-        public async Task<ActionResult> IndexAsync(string customword)
-        {
-            await Task.Run(() => { });
-
-            ViewBag.Title = "Dubastic - Search";
-
-            int pageSize = 10;
-
-            IQueryable<Topic> source = _db.Topic
-                .Include(a => a.Forum)
-                .Where(a => a.Title.Contains(customword) || a.Description.Contains(customword));
-
-            var count = await source.CountAsync();
-            var items = await source.Skip((1 - 1) * pageSize).Take(pageSize).ToListAsync();
-
-            PageViewModel pageViewModel = new PageViewModel(count, 1, pageSize);
-
-            IndexViewModel viewModel = new IndexViewModel
-            {
-                PageViewModel = pageViewModel,
-                Items = items
-            };
-
-            return View("Search", viewModel);
-        }
-
     }
 }
