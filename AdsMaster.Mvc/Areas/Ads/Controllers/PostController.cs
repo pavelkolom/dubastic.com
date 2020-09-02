@@ -75,7 +75,7 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
                 Title = title,
                 LastPostName = "",
                 UrlName = "",
-                Price = int.Parse(price),
+                Price = decimal.Parse(price),
                 AnswerPostID = 0,
                 StartedByName = "",
                 Description = message,
