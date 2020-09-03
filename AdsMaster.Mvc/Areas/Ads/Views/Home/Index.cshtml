@@ -13,14 +13,14 @@
     var profile = UserRetrievalShim.GetProfile();
 }
 
-<!-- Start intro section -->
+@*Start intro section*@
 <section id="intro" class="section-intro">
     <div class="overlay">
         <div class="container">
             <div class="main-text">
                 <h1 class="intro-title">Welcome To <span>DUBASTIC</span></h1>
                 <p class="sub-title">Buy and sell everything from used cars to mobile phones and computers, or search for property, jobs and more</p>
-                <!-- Start Search Box -->
+                @*Start Search Box*@
                 <div class="search-bar">
                     <fieldset>
                         <form class="search-form" method="get" action="/Ads/Category/">
@@ -34,16 +34,15 @@
                         </form>
                     </fieldset>
                 </div>
-                <!-- End Search Box -->
+                @*End Search Box*@
             </div>
         </div>
     </div>
 </section>
-<!-- End Intro Section -->
-
+@*End Intro Section*@
 
 <div class="wrapper">
-    <!-- Categories Homepage Section Start -->
+    @*Categories Homepage Section Start*@
     <section id="categories-homepage">
         <div class="container">
             <div class="row">
@@ -115,12 +114,11 @@
             </div>
         </div>
     </section>
-    <!-- Categories Homepage Section End -->
+    @*Categories Homepage Section End*@
 </div>
 
 @section scripts
 {
-
     <script>
         function expand(val) {
             var x = document.getElementById("myDIV" + val);
@@ -134,6 +132,7 @@
                 x.style.display = "none";
             }
         }
+
         function collapse(val) {
             var x = document.getElementById("myDIV" + val);
             var y = document.getElementById("btnExpand" + val);
@@ -146,6 +145,5 @@
                 x.style.display = "block";
             }
         }
-
     </script>
 }
