@@ -4211,3 +4211,12 @@ footer .menu li a:hover {
     float: right;
     right: 5px !important;
 }
+
+.post-input {
+    background: none;
+    width: 100%;
+    text-align: center;
+    border-color: gray;
+    border: none;
+    outline: 0;
+}

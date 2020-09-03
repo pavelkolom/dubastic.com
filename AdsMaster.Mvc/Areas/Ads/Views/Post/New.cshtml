@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="~/lib/summernote/dist/summernote.min.css" type="text/css">
 
-<!-- Page Header Start -->
+@*Page Header Start*@
 <div class="page-header" style="background: url(../../Classifieds/dist/img/banner1.jpg);">
     <div class="container">
         <div class="row">
@@ -18,9 +18,9 @@
         </div>
     </div>
 </div>
-<!-- Page Header End -->
+@*Page Header End*@
 
-<!-- Content section Start -->
+@*Content section Start*@
 <form method="post" enctype="multipart/form-data">
     <section id="content">
         <div class="container">
@@ -76,7 +76,8 @@
                                     <label class="tg-fileuploadlabel" for="tg-photogallery">
                                         <span class="btn btn-common">Select Files</span>
                                         <span>Maximum upload file size: 500 KB</span>
-                                        <input id="tg-photogallery" class="tg-fileinput" type="file" name="uploadedFile">
+                                        <input id="tg-photogallery" class="tg-fileinput" type="file" name="uploadedFile" onchange="$('#upload-file-info').val($(this).val().replace(/^.*[\\\/]/, ''));">
+                                        <input type="text" class="post-input" id="upload-file-info" readonly />
                                     </label>
                                 </div>
                             </div>
@@ -173,7 +174,7 @@
         </div>
     </section>
 </form>
-<!-- Content section End -->
+@*Content section End*@
 
 @section scripts
 {
