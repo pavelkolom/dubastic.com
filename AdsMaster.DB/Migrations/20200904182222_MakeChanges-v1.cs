@@ -12,6 +12,34 @@ namespace AdsMaster.DB.Migrations
                 nullable: false,
                 defaultValue: 0
                 );
+
+            migrationBuilder.AlterColumn<int>(
+                name: "Price",
+                table: "pf_Topic",
+                nullable: false,
+                defaultValue: 0
+                );
+
+            migrationBuilder.AlterColumn<int>(
+                name: "AnswerPostID",
+                table: "pf_Topic",
+                nullable: false,
+                defaultValue: 0
+                );
+
+            migrationBuilder.AlterColumn<int>(
+                name: "Image",
+                table: "pf_Topic",
+                nullable: true,
+                defaultValue: ""
+                );
+
+            migrationBuilder.AlterColumn<int>(
+                name: "Description",
+                table: "pf_Topic",
+                nullable: true,
+                defaultValue: ""
+                );
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
