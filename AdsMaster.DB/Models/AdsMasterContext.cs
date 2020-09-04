@@ -21,7 +21,7 @@ namespace AdsMaster.DB.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.\MSSQLSERVER01;Database=adsdubai;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=18.156.26.156;Database=dubastic;User=popforumsadmin;Password=Kolopavs@1958");
         }
 
         public DbSet<Category> Category { get; set; }
