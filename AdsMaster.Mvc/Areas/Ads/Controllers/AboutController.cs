@@ -14,19 +14,9 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
 			ViewBag.Title = "Ads Master - About Us";
 			return View();
 		}
-		public ViewResult Pricing()
-		{
-			ViewBag.Title = "Ads Master - Pricing";
-			return View();
-		}
-		public ViewResult FAQ()
-		{
-			ViewBag.Title = "Ads Master - FAQ";
-			return View();
-		}
 		public ViewResult Contact()
 		{
-			ViewBag.Title = "Ads Master - FAQ";
+			ViewBag.Title = "Ads Master - Contact";
 			return View();
 		}
 	}

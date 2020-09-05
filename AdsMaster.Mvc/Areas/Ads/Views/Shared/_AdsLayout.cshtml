@@ -2,7 +2,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 @section HeaderContent {
     @RenderSection("HeaderContent", required: false)
     <environment include="Development">
@@ -60,9 +59,9 @@
 
 @RenderBody()
 
-<!-- Footer Section Start -->
+@*Footer Section Start*@
 <footer>
-    <!-- Footer Area Start -->
+    @*Footer Area Start*@
     <section class="footer-Content">
         <div class="container">
             <div class="row">
@@ -70,7 +69,7 @@
                     <div class="widget">
                         <h3 class="block-title">About us</h3>
                         <div class="textwidget">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum. Sed ex est, consectetur eget facilisis sed, auctor ut purus.</p>
+                            <p>Advertising service for the purchase or sale of services and goods, search for contacts and new opportunities.</p>
                         </div>
                     </div>
                 </div>
@@ -95,12 +94,6 @@
                                 <li class="clearfix">
                                     <span>
                                         Welcome to Dubastic
-                                        <a href="#">https://www.dubastic.com/</a>
-                                    </span>
-                                </li>
-                                <li class="clearfix">
-                                    <span>
-                                        Welcome to Dubastik
                                         <a href="#">https://www.dubastic.com/</a>
                                     </span>
                                 </li>
@@ -154,9 +147,8 @@
             </div>
         </div>
     </section>
-    <!-- Footer area End -->
-
-    <!-- Copyright Start  -->
+    @*Footer area End*@
+    @*Copyright Start*@
     <div id="copyright">
         <div class="container">
             <div class="row">
@@ -168,36 +160,35 @@
             </div>
         </div>
     </div>
-    <!-- Copyright End -->
+    @*Copyright End*@
 
 </footer>
-<!-- Footer Section End -->
-<!-- Go To Top Link -->
+@*Footer Section End*@
+
+@*Go To Top Link*@
 <a href="#" class="back-to-top">
     <i class="fas fa-angle-up"></i>
 </a>
 
-<!-- Main JS  -->
-
-
+@*Main JS*@
 
 @section scripts {
     @RenderSection("scripts", required: false)
-<environment include="Development">
-    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="~/lib/popper.js/dist/popper.min.js"></script>
-    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/lib/jquery.stellar/jquery.stellar.js"></script>
-    <script type="text/javascript" src="~/Classifieds/dist/js/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="~/Classifieds/dist/js/color-switcher.js"></script>
-    <script type="text/javascript" src="~/lib/slicknav/dist/jquery.slicknav.min.js"></script>
-    <script type="text/javascript" src="~/lib/wowjs/dist/wow.min.js"></script>
-    <script type="text/javascript" src="~/lib/jquery.counterup/jquery.counterup.min.js"></script>
-    <script type="text/javascript" src="~/lib/waypoints/lib/jquery.waypoints.min.js"></script>
-    <script type="text/javascript" src="~/lib/bootstrap-validator/dist/validator.min.js"></script>
-    <script type="text/javascript" src="~/Classifieds/dist/js/contact-form-script.js"></script>
-    <script type="text/javascript" src="~/Classifieds/dist/js/main.js"></script>
-</environment>
+    <environment include="Development">
+        <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="~/lib/popper.js/dist/popper.min.js"></script>
+        <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/lib/jquery.stellar/jquery.stellar.js"></script>
+        <script type="text/javascript" src="~/Classifieds/dist/js/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="~/Classifieds/dist/js/color-switcher.js"></script>
+        <script type="text/javascript" src="~/lib/slicknav/dist/jquery.slicknav.min.js"></script>
+        <script type="text/javascript" src="~/lib/wowjs/dist/wow.min.js"></script>
+        <script type="text/javascript" src="~/lib/jquery.counterup/jquery.counterup.min.js"></script>
+        <script type="text/javascript" src="~/lib/waypoints/lib/jquery.waypoints.min.js"></script>
+        <script type="text/javascript" src="~/lib/bootstrap-validator/dist/validator.min.js"></script>
+        <script type="text/javascript" src="~/Classifieds/dist/js/contact-form-script.js"></script>
+        <script type="text/javascript" src="~/Classifieds/dist/js/main.js"></script>
+    </environment>
 
     <environment exclude="Development">
         <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>

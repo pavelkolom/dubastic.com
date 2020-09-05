@@ -2,23 +2,157 @@
     Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
 }
 
-<!-- Start Page Header -->
+@*Page Header Start*@
 <div class="page-header" style="background: url(../../Classifieds/dist/img/banner1.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-wrapper">
-                    <h2 class="page-title">Faq</h2>
+                    <h2 class="page-title">FAQ</h2>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- End Page Header -->
+@*Page Header End*@
 
-<!-- Start Content Section -->
-<section id="content">
-    <div class="row justify-content-center">
+@*Start Content*@
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="head-faq text-center">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                </div>
+
+                @*Accordion start*@
+                <div class="panel-group" id="accordion">
+
+                    @* FAQ Section *@
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    How do I place an ad?
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <p>Make registration and post ad</p>
+                                <br>
+                                <p>
+                                    Press button "Place Ad" and on new page enter required data.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    @* FAQ Section *@
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                    Who should I contact if I have any questions?
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+                                    Please use contact form.
+                                </p>
+                                <br>
+                                <p>
+                                    More correct describe your question. Use only English text.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    @* FAQ Section *@
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                    How can I delete or change my ad?
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+                                    Login and make changes in list of your ads.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    @* FAQ Section *@
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                    How can I delete my account?
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+                                    Login to your account and go to settings.
+                                </p>
+                                <br>
+                                <p>
+                                    All your ads will deleted.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    @* FAQ Section *@
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                                    My ads not showing?
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+                                    Your ads may be on review or cancelled to publish, please check your status ads in ads list
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    @* FAQ Section *@
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+                                    How to find ad?
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseSix" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+                                    Use search bar or navigation list by category in main menu.
+                                </p>
+                                <br>
+                                <p>
+                                    If ads not find try use different keywords.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*Accordion End*@
+            </div>
+        </div>
     </div>
-</section>
-<!-- End Content Section -->
+</div>
+@*End Content*@

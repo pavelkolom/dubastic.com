@@ -4,14 +4,13 @@
 @model CategorizedForumContainer
 
 @{
-  Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
-  var user = UserRetrievalShim.GetUser();
-
+    Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
+    var user = UserRetrievalShim.GetUser();
 }
 
 <link rel="stylesheet" href="~/lib/summernote/dist/summernote.min.css" type="text/css">
 
-<!-- Page Header Start -->
+@*Page Header Start*@
 <div class="page-header" style="background: url(../../Classifieds/dist/img/banner1.jpg);">
     <div class="container">
         <div class="row">
@@ -21,8 +20,9 @@
         </div>
     </div>
 </div>
-<!-- Page Header End -->
-<!-- Content section Start -->
+@*Page Header End*@
+
+@*Content section Start*@
 <form method="post" enctype="multipart/form-data">
     <section id="content">
         <div class="container">
@@ -112,7 +112,7 @@
                                                     <label class="custom-control-label" for="tg-agreetermsandrules">I agree to all <a href="javascript:void(0);">Terms of Use &amp; Posting Rules</a></label>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -163,34 +163,28 @@
                                         <textarea rows="10" cols="30" class="form-control input-md" name="Message" placeholder="Message here" type="text"></textarea>
                                     </div>
                                     <label class="tg-fileuploadlabel" for="tg-photogallery">
-                                        <span>Drop files anywhere to upload</span>
-                                        <span>Or</span>
                                         <span class="btn btn-common">Select Files</span>
                                         <span>Maximum upload file size: 500 KB</span>
-                                        <input id="tg-photogallery" class="tg-fileinput" type="file" name="uploadedFile">
+                                        <input id="tg-photogallery" class="tg-fileinput" type="file" name="uploadedFile" onchange="$('#upload-file-info').val($(this).val().replace(/^.*[\\\/]/, ''));">
+                                        <input type="text" class="post-input" id="upload-file-info" readonly />
                                     </label>
                                     <button class="btn btn-common" type="submit">Post Ad</button>
                                 </div>
                             </div>
                         </div>
-                        @*<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-
-                        </div>*@
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </form>
-<!-- Content section End -->
+@*Content section End*@
 
 @section scripts
 {
     <script type="text/javascript" src="~/lib/summernote/dist/summernote.min.js"></script>
 
     <script>
-        //console.log("hi");
-
         $('#summernote').summernote({
             height: 250, // set editor height
             minHeight: null, // set minimum height of editor
@@ -210,11 +204,7 @@
             var url = '@Url.Content("~/")' + "Ads/Category/GetSubCategory";
             var ddlsource = "#x";
 
-            console.log(url);
-
             $.getJSON(url, { CategoryID: $(ddlsource).val() }, function (data) {
-                console.log(data);
-
                 var items = '';
                 $.each(data, function (i, product) {
                     items += "<option value='" + product.forumID + "'>" + product.title + "</option>";
