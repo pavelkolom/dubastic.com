@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AdsMaster.DB\AdsMaster.DB.csproj" />
+    <ProjectReference Include="..\AdsMaster\AdsMaster.csproj" />
   </ItemGroup>
 
 
