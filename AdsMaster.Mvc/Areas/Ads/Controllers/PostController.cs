@@ -31,10 +31,13 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
             _forumService = forumService;
         }
 
-        public async Task<ViewResult> New()
+        public async Task<IActionResult> New()
         {
             ViewBag.Title = "Ads Master - Post new Ad";
             var user = _userRetrievalShim.GetUser();
+
+            if(user == null)
+                return RedirectToAction("Login", "Account",  new { r = (Request.IsHttps ? "https://" : "http://") + Request.Host + Request.Path});
             return View(await _forumService.GetCategorizedForumContainerFilteredForUser(user));
         }
 

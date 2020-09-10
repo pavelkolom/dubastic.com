@@ -15,6 +15,7 @@ using AdsMaster.Mvc.Areas.Ads.Models;
 using PopForums.ScoringGame;
 using PopForums.Services;
 using AdsMaster.Mvc.Areas.Ads.Extensions;
+using Microsoft.AspNetCore.Routing;
 
 namespace AdsMaster.Mvc.Areas.Ads.Controllers
 {
@@ -97,8 +98,30 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
 
 		[AdsMasterAuthorizationIgnore]
 		[HttpPost]
-		public async Task<ViewResult> Create(SignupData signupData)
+		public async Task<ViewResult> Create(SignupData signupData, string r)
 		{
+			// start add referrer by Pavel
+			if (r == null)
+			{
+
+				string link;
+				if (Request == null || string.IsNullOrWhiteSpace(Request.Headers["Referer"]))
+					link = Url.Action("Index", HomeController.Name);
+				else
+				{
+					link = Request.Headers["Referer"];
+					if (!link.Contains(Request.Host.Value))
+						link = Url.Action("Index", HomeController.Name);
+				}
+				ViewBag.Referrer = link;
+
+			}
+			else
+				ViewBag.Referrer = r;
+			// end
+
+
+
 			var ip = HttpContext.Connection.RemoteIpAddress.ToString();
 			if (_config.UseReCaptcha)
 			{
@@ -450,18 +473,25 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
 		}
 
 		[AdsMasterAuthorizationIgnore]
-		public ViewResult Login()
+		public ViewResult Login(string r)
 		{
-			string link;
-			if (Request == null || string.IsNullOrWhiteSpace(Request.Headers["Referer"]))
-				link = Url.Action("Index", HomeController.Name);
-			else
+			if (r == null)
 			{
-				link = Request.Headers["Referer"];
-				if (!link.Contains(Request.Host.Value))
+
+				string link;
+				if (Request == null || string.IsNullOrWhiteSpace(Request.Headers["Referer"]))
 					link = Url.Action("Index", HomeController.Name);
+				else
+				{
+					link = Request.Headers["Referer"];
+					if (!link.Contains(Request.Host.Value))
+						link = Url.Action("Index", HomeController.Name);
+				}
+				ViewBag.Referrer = link;
+
 			}
-			ViewBag.Referrer = link;
+			else
+				ViewBag.Referrer = r;
 
 			var externalLoginList = _externalLoginRoutingService.GetActiveProviderTypeAndNameDictionary();
 
