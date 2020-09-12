@@ -123,6 +123,9 @@
   <data name="ContactUs" xml:space="preserve">
     <value>Contact Us</value>
   </data>
+  <data name="Deposit" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
   <data name="Faq" xml:space="preserve">
     <value>FAQ</value>
   </data>
