@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using PopForums.Extensions;
 using PopForums.Services;
 using System;
 using System.IO;
@@ -36,8 +37,9 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
             ViewBag.Title = "Ads Master - Post new Ad";
             var user = _userRetrievalShim.GetUser();
 
-            if(user == null)
-                return RedirectToAction("Login", "Account",  new { r = (Request.IsHttps ? "https://" : "http://") + Request.Host + Request.Path});
+            if (user == null)
+                return RedirectToAction("Login", "Account", new { r = (Request.IsHttps ? "https://" : "http://") + Request.Host + Request.Path });
+
             return View(await _forumService.GetCategorizedForumContainerFilteredForUser(user));
         }
 
@@ -72,17 +74,27 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
             string forumId,
             IFormFile uploadedFile)
         {
-            var item = new Topic()
+            var user = _userRetrievalShim.GetUser();
+
+            if (user == null)
+                return RedirectToAction("Login", "Account", new { r = (Request.IsHttps ? "https://" : "http://") + Request.Host + Request.Path });
+
+            var urlName = title.ToUniqueUrlName(new System.Collections.Generic.List<string>() { "" });
+
+            var topicItem = new Topic()
             {
                 ForumID = int.Parse(forumId),
                 Title = title,
-                LastPostName = "",
-                UrlName = "",
+                UrlName = urlName,
                 Price = decimal.Parse(price),
                 AnswerPostID = 0,
-                StartedByName = "",
                 Description = message,
                 IsModerated = false,
+                StartedByUserID = user.UserID,
+                StartedByName = user.Name,
+                LastPostUserID = user.UserID,
+                LastPostName = user.Name,
+                LastPostTime = DateTime.Now,
             };
 
             if (uploadedFile != null)
@@ -94,10 +106,26 @@ namespace AdsMaster.Mvc.Areas.Ads.Controllers
                     await uploadedFile.CopyToAsync(fileStream);
                 }
 
-                item.Image = uploadedFile.FileName;
+                topicItem.Image = uploadedFile.FileName;
             }
 
-            _db.Topic.Add(item);
+            _db.Topic.Add(topicItem);
+
+            await _db.SaveChangesAsync();
+
+            var postItem = new Post()
+            {
+                TopicID = topicItem.TopicID,
+                FullText = message,
+                Title = message,
+                UserID = user.UserID,
+                Name = user.Name,
+                LastEditName = user.Name,
+                PostTime = DateTime.Now,
+                IP = HttpContext.Connection.RemoteIpAddress.ToString(),
+            };
+
+            _db.Post.Add(postItem);
 
             try
             {
