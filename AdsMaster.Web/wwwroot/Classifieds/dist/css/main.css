@@ -30,6 +30,11 @@ h3 {
   line-height: 1.4em;
 }
 
+h2.space, h3.space {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
 p {
   font-size: 13px;
   font-family: 'Lato', sans-serif;
