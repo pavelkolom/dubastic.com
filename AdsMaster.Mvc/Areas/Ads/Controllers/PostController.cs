@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PopForums.Extensions;
+using PopForums.Mvc.Areas.Forums.Services;
 using PopForums.Services;
 using System;
 using System.IO;

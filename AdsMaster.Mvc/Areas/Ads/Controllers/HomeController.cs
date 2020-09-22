@@ -2,6 +2,7 @@
 using AdsMaster.Mvc.Areas.Ads.Authorization;
 using AdsMaster.Mvc.Areas.Ads.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using PopForums.Mvc.Areas.Forums.Services;
 using PopForums.Services;
 using System.Threading.Tasks;
 

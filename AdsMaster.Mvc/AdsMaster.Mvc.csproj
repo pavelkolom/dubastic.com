@@ -10,16 +10,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="PopForums.Mvc" Version="17.0.0" />
+    <PackageReference Include="PopForums.Sql" Version="17.0.0" />
     <PackageReference Include="PopIdentity" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0-preview.5.20278.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\POPForums\src\PopForums\PopForums.csproj" />
   </ItemGroup>
 
   <ItemGroup>

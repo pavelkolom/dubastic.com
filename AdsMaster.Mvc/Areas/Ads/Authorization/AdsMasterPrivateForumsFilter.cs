@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AdsMaster.Mvc.Areas.Ads.Controllers;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using PopForums.Configuration;
-using AdsMaster.Mvc.Areas.Ads.Controllers;
-using PopForums.Services;
+using PopForums.Mvc.Areas.Forums.Services;
 
 namespace AdsMaster.Mvc.Areas.Ads.Authorization
 {
-	public class AdsMasterPrivateForumsFilter : IActionFilter
+    public class AdsMasterPrivateForumsFilter : IActionFilter
 	{
 		private readonly IUserRetrievalShim _userRetrievalShim;
 		private readonly ISettingsManager _settingsManager;

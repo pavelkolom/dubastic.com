@@ -29,11 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\POPForums\src\PopForums.AzureKit\PopForums.AzureKit.csproj" />
-    <ProjectReference Include="..\..\POPForums\src\PopForums.ElasticKit\PopForums.ElasticKit.csproj" />
-    <ProjectReference Include="..\..\POPForums\src\PopForums.Mvc\PopForums.Mvc.csproj" />
-    <ProjectReference Include="..\..\POPForums\src\PopForums.Sql\PopForums.Sql.csproj" />
-    <ProjectReference Include="..\..\POPForums\src\PopForums\PopForums.csproj" />
     <ProjectReference Include="..\AdsMaster.DB\AdsMaster.DB.csproj" />
     <ProjectReference Include="..\AdsMaster.Mvc\AdsMaster.Mvc.csproj" />
   </ItemGroup>

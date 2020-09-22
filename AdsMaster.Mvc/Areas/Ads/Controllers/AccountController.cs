@@ -1,5 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using AdsMaster.Mvc.Areas.Ads.Authorization;
+using AdsMaster.Mvc.Areas.Ads.Extensions;
+using AdsMaster.Mvc.Areas.Ads.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using PopForums;
@@ -9,17 +10,15 @@ using PopForums.Extensions;
 using PopForums.ExternalLogin;
 using PopForums.Feeds;
 using PopForums.Models;
-using AdsMaster.Mvc.Areas.Ads.Authorization;
-using AdsMaster.Mvc.Areas.Ads.Models;
-//using AdsMaster.Mvc.Areas.Ads.Services;
+using PopForums.Mvc.Areas.Forums.Services;
 using PopForums.ScoringGame;
 using PopForums.Services;
-using AdsMaster.Mvc.Areas.Ads.Extensions;
-using Microsoft.AspNetCore.Routing;
+using System;
+using System.Threading.Tasks;
 
 namespace AdsMaster.Mvc.Areas.Ads.Controllers
 {
-	[Area("Ads")]
+    [Area("Ads")]
 	public class AccountController : Controller
 	{
 		public AccountController(IUserService userService, IProfileService profileService, INewAccountMailer newAccountMailer, ISettingsManager settingsManager, IPostService postService, ITopicService topicService, IForumService forumService, ILastReadService lastReadService, IClientSettingsMapper clientSettingsMapper, IUserEmailer userEmailer, IImageService imageService, IFeedService feedService, IUserAwardService userAwardService, IExternalUserAssociationManager externalUserAssociationManager, IUserRetrievalShim userRetrievalShim, IExternalLoginRoutingService externalLoginRoutingService, IExternalLoginTempService externalLoginTempService, IConfig config, IReCaptchaService reCaptchaService)

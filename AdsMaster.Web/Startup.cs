@@ -1,23 +1,20 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AdsMaster.DB.Models;
+using AdsMaster.Mvc.Areas.Ads.Authorization;
+using AdsMaster.Mvc.Areas.Ads.Extensions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using PopForums.ElasticKit;
-using PopForums.AzureKit;
 using PopForums.Configuration;
 using PopForums.Extensions;
-using AdsMaster.Mvc.Areas.Ads.Authorization;
-using AdsMaster.Mvc.Areas.Ads.Extensions;
-using PopForums.Mvc.Areas.Forums.Authorization;
 using PopForums.Sql;
-using AdsMaster.DB.Models;
 
 namespace AdsMaster.Web
 {
-	public class Startup
+    public class Startup
 	{
 		public Startup(IWebHostEnvironment env)
 		{
