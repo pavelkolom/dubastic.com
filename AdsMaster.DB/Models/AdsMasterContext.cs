@@ -112,6 +112,7 @@ namespace AdsMaster.DB.Models
 
         public DbSet<SecurityLogEntry> SecurityLogEntry { get; set; }
 
+        public DbSet<ContactMessage> ContactMessage { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
