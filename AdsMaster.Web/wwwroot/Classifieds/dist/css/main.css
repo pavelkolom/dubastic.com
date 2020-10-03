@@ -2631,7 +2631,7 @@ table.add-manage-table > tbody > tr > th {
 }
 
 .top-nav-collapse .navbar-brand img {
-  width: 70%;
+  width: 100%;
 }
 
 .top-nav-collapse .navbar-nav .nav-link {
@@ -2659,7 +2659,7 @@ table.add-manage-table > tbody > tr > th {
 }
 
 .navbar-brand img {
-  width: 70%;
+  width: 100%;
 }
 
 .top-nav-collapse .navbar-nav li.active a.nav-link {
@@ -2863,7 +2863,7 @@ table.add-manage-table > tbody > tr > th {
 .slicknav_brand {
   float: left;
   line-height: inherit;
-  padding: 7px 0;
+  padding: 14px 0;
   height: auto;
 }
 
@@ -2949,6 +2949,9 @@ table.add-manage-table > tbody > tr > th {
 }
 
 @media (max-width: 991px) {
+  .mobile-menu img {
+    width: 70%;
+  }
   .slicknav_menu {
     display: block;
     width: 100%;
