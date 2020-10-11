@@ -111,6 +111,15 @@ h3.block-title {
   padding-bottom: 5px;
 }
 
+/*
+    Search button
+*/
+
+.bb {
+    float: right;
+    right: 5px !important;
+}
+
 /*====================================================
     bootstrap default style overriding
   ====================================================*/
@@ -2949,6 +2958,9 @@ table.add-manage-table > tbody > tr > th {
 }
 
 @media (max-width: 991px) {
+  .bb {
+    right: 0px !important;
+  }
   .mobile-menu img {
     width: 70%;
   }
@@ -4213,11 +4225,6 @@ footer .menu li a:hover {
 
 .social-icon .linkedin:hover {
   background-color: #007bb5;
-}
-
-.bb {
-    float: right;
-    right: 5px !important;
 }
 
 .post-input {

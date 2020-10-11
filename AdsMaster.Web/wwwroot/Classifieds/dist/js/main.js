@@ -59,7 +59,7 @@ JS INDEX
       label:'',
       closedSymbol:'<i class="fas fa-chevron-right"><i/>',
       openedSymbol:'<i class="fas fa-chevron-down"><i/>',
-      brand:'<a href="index.html"><img src="'+logo_path+'" class="img-responsive" alt="logo"></a>'
+      brand:'<a href="/Ads"><img src="'+logo_path+'" class="img-responsive" alt="logo"></a>'
   });
 
   /*====================================

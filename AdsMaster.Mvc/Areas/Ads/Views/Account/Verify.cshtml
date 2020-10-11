@@ -5,8 +5,7 @@
   Layout = "~/Areas/Ads/Views/Shared/_AdsLayout.cshtml";
 }
 
-
-<!-- Page Header Start -->
+ @*Page Header Start*@ 
 <div class="page-header" style="@("background: url(" + Url.Content("~/Classifieds/dist/img/banner1.jpg") + ");")">
     <div class="container">
         <div class="row">
@@ -18,23 +17,12 @@
         </div>
     </div>
 </div>
-<!-- Page Header End -->
-
+ @*Page Header End*@ 
 
 <section id="content">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-
-                <div>
-                    @*<h1>@PopForums.Resources.VerifyAccount</h1>*@
-                    @if (!SettingsManager.Current.IsPrivateForumInstance)
-                    {
-                        <ul id="TopBreadcrumb" class="breadcrumb">
-                            <li class="breadcrumb-item"><a asp-controller="@HomeController.Name" asp-action="Index">@PopForums.Resources.Forums</a></li>
-                        </ul>
-                    }
-                </div>
 
                 @if (ViewData["EmailProblem"] != null || ViewData["Result"] != null)
                 {
@@ -42,7 +30,7 @@
                 }
 
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
                         <form asp-action="VerifyCode" method="post">
                             <div role="form">
                                 <div class="form-group">
@@ -53,7 +41,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
                         <form asp-action="RequestCode" method="post">
                             <div role="form">
                                 <div class="form-group">
@@ -65,8 +53,6 @@
                         </form>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
