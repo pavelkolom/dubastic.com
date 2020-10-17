@@ -23,7 +23,7 @@
 }
 
 
-<!-- Page Header Start -->
+ @*Page Header Start*@ 
 <div class="page-header" style="@("background: url(" + Url.Content("~/Classifieds/dist/img/banner1.jpg") + ");")">
     <div class="container">
         <div class="row">
@@ -35,23 +35,12 @@
         </div>
     </div>
 </div>
-<!-- Page Header End -->
-
+ @*Page Header End*@ 
 
 <section id="content">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-
-                <div>
-
-                    @if (!SettingsManager.Current.IsPrivateForumInstance)
-                    {
-                        <ul id="TopBreadcrumb" class="breadcrumb">
-                            <li class="breadcrumb-item"><a asp-controller="@HomeController.Name" asp-action="Index">@PopForums.Resources.Forums</a></li>
-                        </ul>
-                    }
-                </div>
 
                 <div id="LoginResult" class="alert alert-danger @if (String.IsNullOrWhiteSpace(Context.Request.Query["error"])){<text> d-none</text>}">@Context.Request.Query["error"]</div>
 
