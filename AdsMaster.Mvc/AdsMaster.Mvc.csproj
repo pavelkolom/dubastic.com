@@ -12,12 +12,12 @@
   <ItemGroup>
     <PackageReference Include="PopForums.Mvc" Version="17.0.0" />
     <PackageReference Include="PopForums.Sql" Version="17.0.0" />
-    <PackageReference Include="PopIdentity" Version="2.0.0" />
+    <PackageReference Include="PopIdentity" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
